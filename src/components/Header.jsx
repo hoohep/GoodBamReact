@@ -15,7 +15,7 @@ const HeaderStyle = styled.header`
   .nav-logo {
     padding: 0 12px;
   }
-    
+
   .menuToggleBtn {
     display: none;
     color: white;
@@ -79,6 +79,7 @@ const Header = () => {
             <HeaderStyle>
                 <div className='nav-logo'>
                 <Link to={"/"} className='nav-logo-link'><img src={logo} alt='logo' /></Link>
+
                 </div>
 
                 {/* 토글 메뉴 리스트 */}

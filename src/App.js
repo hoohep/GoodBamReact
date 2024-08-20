@@ -10,8 +10,6 @@ import List from './components/List';
 import Result from './components/Result';
 
 
-
-
 function App() {
 
     return (
