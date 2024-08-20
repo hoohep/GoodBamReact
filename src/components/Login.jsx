@@ -9,7 +9,7 @@ const Login = () => {
   const [id, setId] = useState('')
   const [pw, setPw] = useState('')
   const [name, setName] = useState('')
-
+ 
   //로그인 유무
   const [auth, setAuth] = useState('false')
 
