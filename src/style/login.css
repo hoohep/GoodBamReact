@@ -1,0 +1,89 @@
+.login-container {
+    position : absolute ;
+    top:0;
+    bottom : 0;
+    width: 100% ;
+    max-width : 500px;
+    padding: 0 20px;
+
+    left:50%;
+    transform : translate(-50%,0);
+
+    overflow : hidden;
+
+    display: flex;
+    flex-direction: column;
+}
+
+/* 타이틀 */
+.login-title {
+    margin-top: 2em;
+    margin-bottom: 1.6em;
+    font-size: 26px;
+    font-weight: 700;
+
+    color: #262626;
+}
+
+/* 아이디, 비밀번호 입력 */
+.login-content{
+    margin-top : 10px;
+    margin-bottom: 14px;
+    font-size : 14px;
+    font-weight : 600;
+    color :#262626;
+}
+
+input[type="email"], input[type="password"]{
+    border-radius: 8px;
+    padding: 20px;
+    margin-top:8px;
+    margin-bottom: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0; 
+}
+
+input{
+    width:320px;
+    outline:none;
+    border:none;
+    height: 18px;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+input:focus-within{
+    border:1px solid #9e30f4;
+}
+
+input::placeholder{
+    color : #dadada;
+}
+
+/* 로그인 버튼 */
+.login-btn {
+    width:320px;
+    height:48px;
+    border:none;
+    font-weight: 700;
+    border-radius: 64px;
+    cursor:pointer;
+    margin: 6px;
+}
+
+.login-btn:hover{
+    background-color: #dadada;
+    color:#9e30f4;
+}
+
+.join-btn{
+    border: none;
+    background: none;
+}
+
+/* 320px보다 작은 화면일 때 */
+@media screen and (max-width: 320px) {
+    input, .login-btn{
+        width: 100%;
+    }
+  }
