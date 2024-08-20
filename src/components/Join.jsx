@@ -22,7 +22,7 @@ const Join = () => {
         console.log(res)
     })
 }
-
+ 
 
 
 
