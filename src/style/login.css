@@ -76,6 +76,22 @@ input::placeholder{
     color:#9e30f4;
 }
 
+.loginKakao-btn {
+    background-color: #fffb00;
+    width:320px;
+    height:48px;
+    border:none;
+    font-weight: 700;
+    border-radius: 64px;
+    cursor:pointer;
+    margin: 6px;
+}
+
+.loginKakao-btn:hover {
+    background-color: #ffec46;
+    color:#9e30f4;
+}
+
 .join-btn{
     border: none;
     background: none;
