@@ -3,7 +3,7 @@
 }
 
 /* 타이틀 */
-.login-title {
+.join-title {
     margin-top: 2em;
     margin-bottom: 1.6em;
     font-size: 32px;
@@ -11,15 +11,15 @@
     color: #262626;
 }
 
-/* 아이디, 비밀번호 입력 */
-.login-content{
+/* 정보 입력 */
+.join-content{
     margin-top : 10px;
     margin-bottom: 14px;
     font-size : 16px;
     color :#262626;
 }
 
-.login-input{
+.join-input{
     border-radius: 8px;
     padding: 20px;
     margin-top:8px;
@@ -45,50 +45,28 @@ input::placeholder{
     color : #dadada;
 }
 
-/* 로그인 버튼 */
-.login-btn {
+/* 회원가입 버튼 */
+.join-btn{
     width:320px;
     height:48px;
-    border:none;
     border-radius: 64px;
     cursor:pointer;
-    margin-top: 16px;
+    margin-top: 2.6em;
+    background-color: #fff;
+    border: solid 1px;
+    border-color: navy;
     font-size: 15px;
+    color:navy;
 }
 
-.login-btn:hover{
-    background-color: #dadada;
-    color:#9e30f4;
-}
-
-.loginKakao-btn {
-    background-color: #fffb00;
-    width:320px;
-    height:48px;
-    border:none;
-    border-radius: 64px;
-    cursor:pointer;
-    margin-top: 8px;
-    font-size: 15px;
-}
-
-.loginKakao-btn:hover {
-    background-color: #ffec46;
-    color:#9e30f4;
-}
-
-.join-text{
-    margin-top: 1.5em;
-    font-size: 15px;
-}
-
-.join-text a{
-    text-decoration: none;
+.join-btn:hover{
+    background-color: navy;
+    color: white;
 }
 
 /* 320px보다 작은 화면일 때 */
 @media screen and (max-width: 320px) {
-    input, .login-btn, .loginKakao-btn{
+    .join-btn{
         width: 100%;
     }
   }
