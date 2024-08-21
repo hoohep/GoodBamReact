@@ -12,7 +12,7 @@ const Login = () => {
     const [pw, setPw] = useState('')
 
     //로그인 유무
-    const [auth, setAuth] = useState(false)
+    // const [token, setToken] = useState('')
 
     // 카카오 API 로그인
     const rest_api_key = '0196bd96b83188ce5806bb730eff40d5';
@@ -35,12 +35,10 @@ const Login = () => {
             data: formData
         })
         .then((res) => {
-            console.log(res)
-            sessionStorage.setItem('token', res.data);
-
-            setAuth(true);
-            console.log(auth)
-            nav('/')
+            // console.log(res)
+            // 로컬에 토큰 저장
+            localStorage.setItem('token', res.data);
+            nav('/')    
         })
         .catch(error => {
             console.error('error', error);

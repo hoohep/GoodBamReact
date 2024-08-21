@@ -8,6 +8,8 @@ import Login from './components/Login';
 import Sleep from './components/Sleep';
 import List from './components/List';
 import Result from './components/Result';
+import Footer from './components/Footer';
+
 
 
 function App() {
@@ -28,6 +30,7 @@ function App() {
                     <Route path="/list" element={<List />} />
                     <Route path="/result" element={<Result />} />
                 </Routes>
+
             </div>
         </BrowserRouter>
     );

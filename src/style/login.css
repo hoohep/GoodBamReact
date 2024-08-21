@@ -99,7 +99,7 @@ input::placeholder{
 
 /* 320px보다 작은 화면일 때 */
 @media screen and (max-width: 320px) {
-    input, .login-btn{
+    input, .login-btn, .loginKakao-btn{
         width: 100%;
     }
   }
