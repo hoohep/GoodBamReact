@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
-
+import Swal from 'sweetalert2';
 
 const HeaderStyle = styled.header`
   background-color: navy;
@@ -97,6 +97,11 @@ const Header = () => {
     const handleLogout = () => {
         localStorage.removeItem('token')
         checkLoginStatus(); //로그아웃 후 로그인 상태를 다시 확인
+        Swal.fire({
+          title: "안녕히가세요👋",
+          text: "로그아웃 되었습니다.",
+          icon: "warning"
+      });
         nav('/')
     }
 

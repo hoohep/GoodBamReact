@@ -1,18 +1,14 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import '../style/login.css'
-
+import Swal from 'sweetalert2';
 
 const Login = () => {
 
-    let nav = useNavigate();
-
     const [id, setId] = useState('')
     const [pw, setPw] = useState('')
-
-    //로그인 유무
-    // const [token, setToken] = useState('')
+    const nav = useNavigate();
 
     // 카카오 API 로그인
     const rest_api_key = '0196bd96b83188ce5806bb730eff40d5';
@@ -23,7 +19,7 @@ const Login = () => {
         window.location.href = kakaoURL
     }
 
-    // 로그인
+    // 로그인 실행 함수
     function tryLoginPost() {
         const formData = new FormData();
         formData.append('email', id);
@@ -38,17 +34,27 @@ const Login = () => {
             // console.log(res)
             // 로컬에 토큰 저장
             localStorage.setItem('token', res.data);
-            nav('/')    
+            Swal.fire({
+                title: "로그인 성공!",
+                text: "👏👏",
+                icon: "success"
+            });
+            nav('/')
         })
         .catch(error => {
             console.error('error', error);
+            Swal.fire({
+                title: "로그인 실패",
+                text: "아이디와 비밀번호를 확인해주세요",
+                icon: "error"
+            });
         });
 
     }
 
     return (
 
-        <>
+        <div>
 
             <div className='login-title'>
                 Login
@@ -56,21 +62,23 @@ const Login = () => {
 
             <div className='login-content'>
                 <p>아이디</p>
-                <input type="email" onChange={(e) => setId(e.target.value)} placeholder='abcde@smhrd.com' /> <br />
+                <input type="email" onChange={(e) => setId(e.target.value)} 
+                className='login-input' placeholder='abcde@smhrd.com' /> <br />
             </div>
 
             <div className='login-content'>
                 <p>비밀번호</p>
-                <input type="password" onChange={(e) => setPw(e.target.value)} placeholder='영어, 숫자 포함 8자 ~ 16자' /> <br />
+                <input type="password" onChange={(e) => setPw(e.target.value)} 
+                className='login-input' placeholder='영어, 숫자 포함 8자 ~ 16자' /> <br />
             </div>
 
             <div>
-                <button onClick={tryLoginPost} className='login-btn'>로그인하기</button> <br />
+                <button onClick={tryLoginPost} className='login-btn'>로그인</button> <br />
                 <button onClick={handleLogin} className='loginKakao-btn'>카카오 로그인</button><br />
-                <button className='join-btn'><a href='/join'>회원가입</a></button>
+                <div className='join-text'><a href='/join'>회원가입</a></div>
             </div>
 
-        </>
+        </div>
     )
 }
 
