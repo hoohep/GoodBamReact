@@ -7,7 +7,6 @@ const FooterStyle = styled.footer`
         justify-content: center;
         align-items: center;
         padding: 1rem;
-        background-color: #f1f1f1; /* 배경색 설정 */
         color: #333; /* 글자색 설정 */
         height: 60px; /* 적절한 높이 설정 */
         width: 100%; /* 너비를 화면 전체로 설정 */
