@@ -49,7 +49,7 @@ const Home = () => {
       .then(response => {
         console.log('연결 끊기 성공:', response.data);
         // 연결 해제 후 로그인 페이지로 리디렉트
-        navigate('/');
+        navigate('/login');
       })
       .catch(error => {
         console.error('연결 끊기 실패:', error);
