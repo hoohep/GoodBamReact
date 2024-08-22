@@ -1,0 +1,72 @@
+*{
+    font-family: pretendard;
+}
+
+/* 타이틀 */
+.join-title {
+    margin-top: 2em;
+    margin-bottom: 1.6em;
+    font-size: 32px;
+    font-weight: bold;
+    color: #262626;
+}
+
+/* 정보 입력 */
+.join-content{
+    margin-top : 10px;
+    margin-bottom: 14px;
+    font-size : 16px;
+    color :#262626;
+}
+
+.join-input{
+    border-radius: 8px;
+    padding: 20px;
+    margin-top:8px;
+    margin-bottom: 8px;
+    background-color: white;
+    border: 1px solid #e2e0c0; 
+}
+
+input{
+    width:320px;
+    outline:none;
+    border:none;
+    height: 18px;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+input:focus-within{
+    border:1px solid #9e30f4;
+}
+
+input::placeholder{
+    color : #dadada;
+}
+
+/* 회원가입 버튼 */
+.join-btn{
+    width:320px;
+    height:48px;
+    border-radius: 64px;
+    cursor:pointer;
+    margin-top: 2.6em;
+    background-color: #fff;
+    border: solid 1px;
+    border-color: navy;
+    font-size: 15px;
+    color:navy;
+}
+
+.join-btn:hover{
+    background-color: navy;
+    color: white;
+}
+
+/* 320px보다 작은 화면일 때 */
+@media screen and (max-width: 320px) {
+    .join-btn{
+        width: 100%;
+    }
+  }

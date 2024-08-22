@@ -35,7 +35,7 @@ const Redirection = () => {
       // 액세스 토큰을 localStorage에 저장
       localStorage.setItem('access_token', res.data.access_token);
       // 로그인 성공 페이지로 이동
-      navigate('/loginSuccess');
+      navigate('/');
     })
     .catch((err) => {
       console.error('에러 :'+err); // 에러 처리

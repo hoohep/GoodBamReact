@@ -1,23 +1,39 @@
-import './App.css';
-import { Route, Routes } from 'react-router-dom'
-import Kakao from './components/Kakao';
+import './style/main.css'
+import Header from './components/Header';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import Home from './components/Home';
 import Redirection from './components/Redirection';
 import LoginSuccess from './components/LoginSuccess';
+import Join from './components/Join';
+import Login from './components/Login';
+import Sleep from './components/Sleep';
+import List from './components/List';
+import Result from './components/Result';
 
 function App() {
 
     return (
 
-        <div className="App">
-            <h2>카카오</h2>
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/join" element={<Join />} />
+                    <Route path="/login" element={<Login />} />
 
-            <Routes>
-                <Route path='/' element={<Kakao/>}></Route>
-                <Route path='/kakao' element={<Redirection/>}></Route>
-                <Route path='/loginSuccess' element={<LoginSuccess/>}></Route>
-            </Routes>
-        </div>
 
+
+                    <Route path='/loginSuccess' element={<LoginSuccess />}></Route>
+
+                    <Route path='/kakao' element={<Redirection />}></Route>
+                    <Route path="/sleep" element={<Sleep />} />
+                    <Route path="/list" element={<List />} />
+                    <Route path="/result" element={<Result />} />
+                </Routes>
+
+            </div>
+        </BrowserRouter>
     );
 
 }
