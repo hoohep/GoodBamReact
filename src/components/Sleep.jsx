@@ -1,6 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import Footer from './Footer'; // Footer 컴포넌트 import
+import styled from 'styled-components';
+
+// 전체 페이지 스타일을 적용하기 위해 컨테이너 컴포넌트 추가
+const PageContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const ContentContainer = styled.div`
+  flex: 1;
+`;
 
 function Sleep() {
   const [sleepData, setSleepData] = useState(null); // 수면 데이터를 저장하는 상태
@@ -9,9 +22,9 @@ function Sleep() {
   const navigate = useNavigate();  // useNavigate 훅을 사용하여 리다이렉트 처리
 
   useEffect(() => {
-      // 사용자 토큰이나 ID를 통해 수면 데이터를 가져옴
-      const userId = localStorage.getItem('token'); // 예시로 로컬 스토리지에서 사용자 ID를 가져옴
+      const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰 가져오기
 
+<<<<<<< HEAD
     //   if (!userId) {
     //     // 비회원 상태일 때 Login 페이지로 리다이렉트
     //     navigate('/Login');
@@ -20,50 +33,66 @@ function Sleep() {
  
       // API 호출
       axios.get(`/api/sleep-data/${userId}`)
+=======
+      if (!token) {
+        navigate('/Login');  // 인증되지 않은 경우 로그인 페이지로 리다이렉트
+        return;
+      }
+
+      // API 호출을 통해 수면 데이터 가져오기
+      axios.get(`/api/sleep-data`, {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      })
+>>>>>>> f16f08a3edf8570be25ee353958a04a389125ce7
       .then(response => {
           const data = response.data;
-          if (data.length === 0) {
+          if (!data || data.length === 0) {
               setSleepData(null); // 데이터가 없으면 null로 설정
           } else {
               setSleepData(data); // 데이터를 상태에 저장
           }
-          setLoading(false); // 로딩 상태 해제
       })
       .catch(error => {
           console.error('데이터를 가져오는 중 에러가 발생했습니다:', error);
           setError('데이터를 가져오는 중 오류가 발생했습니다.');
-          setLoading(false);
+      })
+      .finally(() => {
+          setLoading(false); // 로딩 상태 해제
       });
-  }, [navigate]); // 컴포넌트가 처음 렌더링될 때만 실행
+  }, [navigate]);  // 빈 의존성 배열로 컴포넌트가 처음 렌더링될 때만 실행
 
-if (loading) {
-    return <div>Loading...</div>;  // 로딩 중일 때 표시할 문구 (서버가 안 켜져있을 때 Loading만 출력)
-}
+  if (loading) {
+    return <div>Loading...</div>;  // 로딩 중 표시할 문구 또는 스피너
+  }
 
-if (error) {
-    return <div>{error}</div>;  // 에러 발생 시 표시할 문구 (에러의 경위는 다양)
-}
+  if (error) {
+    return <div>{error}</div>;  // 에러 발생 시 표시할 문구
+  }
 
-if (!sleepData) {
+  if (!sleepData) {
     return <div>수면 데이터가 없습니다. 디바이스를 연결해주세요.</div>;  // 수면 데이터가 없을 때 표시할 문구
-}
+  }
 
-// DB에 수면 데이터가 있는 경우 해당 데이터를 화면에 렌더링 --> 수면 시간, 수면 날짜, 이름 등...
-return (
-    <div>
-        <h1>당신의 결과는......</h1>
+  // 수면 데이터가 있는 경우 해당 데이터를 화면에 렌더링
+  return (
+    <PageContainer>
+      <ContentContainer>
+        <h1>당신의 수면 결과</h1>
         <ul>
             {sleepData.map((data, index) => (
                 <li key={index}>
-                    {data.name}님의 수면 결과,
-                    날짜: {data.date},
+                    {data.name}님의 수면 결과 - 
+                    날짜: {data.date}, 
                     수면 시간: {data.sleepHours}시간
                 </li>
             ))}
         </ul>
-    </div>
+      </ContentContainer>
+      <Footer />  {/* Footer 컴포넌트 추가 */}
+    </PageContainer>
   );
 }
 
-
-export default Sleep 
+export default Sleep;
