@@ -21,11 +21,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/join" element={<Join />} />
                     <Route path="/login" element={<Login />} />
-
-
-
                     <Route path='/loginSuccess' element={<LoginSuccess />}></Route>
-
                     <Route path='/kakao' element={<Redirection />}></Route>
                     <Route path="/sleep" element={<Sleep />} />
                     <Route path="/list" element={<List />} />
