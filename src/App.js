@@ -1,6 +1,6 @@
 import './style/main.css'
 import Header from './components/Header';
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom'
 import Home from './components/Home';
 import Redirection from './components/Redirection';
 import Join from './components/Join';
@@ -11,7 +11,7 @@ import Result from './components/Result';
 import Footer from './components/Footer';
 
 function App() {
-
+    
     return (
 
         <BrowserRouter>

@@ -25,6 +25,16 @@ function Sleep() {
   useEffect(() => {
       const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰 가져오기
 
+<<<<<<< HEAD
+    //   if (!userId) {
+    //     // 비회원 상태일 때 Login 페이지로 리다이렉트
+    //     navigate('/Login');
+    //     return;
+    //   }
+ 
+      // API 호출
+      axios.get(`/api/sleep-data/${userId}`)
+=======
       if (!token) {
         navigate('/Login');  // 인증되지 않은 경우 로그인 페이지로 리다이렉트
         return;
@@ -36,6 +46,7 @@ function Sleep() {
           Authorization: `Bearer ${token}`
         }
       })
+>>>>>>> f16f08a3edf8570be25ee353958a04a389125ce7
       .then(response => {
           const data = response.data;
           if (!data || data.length === 0) {
