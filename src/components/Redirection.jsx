@@ -34,7 +34,8 @@ const Redirection = () => {
 
       // 액세스 토큰을 localStorage에 저장
       localStorage.setItem('access_token', res.data.access_token);
-      // 로그인 성공 페이지로 이동
+
+      // 로그인 성공, 홈으로 이동
       navigate('/');
     })
     .catch((err) => {
@@ -42,11 +43,10 @@ const Redirection = () => {
     });
   }, [navigate]);
 
-
   return (
 
     <div>
-      로그인 중입니다 <br />
+      카카오 로그인 처리 중입니다. <br />
     </div>
   )
 }
