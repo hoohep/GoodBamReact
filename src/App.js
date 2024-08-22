@@ -2,6 +2,7 @@ import './App.css';
 import { Route, Routes } from 'react-router-dom'
 import Kakao from './components/Kakao';
 import Redirection from './components/Redirection';
+import LoginSuccess from './components/LoginSuccess';
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
             <Routes>
                 <Route path='/' element={<Kakao/>}></Route>
                 <Route path='/kakao' element={<Redirection/>}></Route>
+                <Route path='/loginSuccess' element={<LoginSuccess/>}></Route>
             </Routes>
         </div>
 
