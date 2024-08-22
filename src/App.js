@@ -9,11 +9,9 @@ import Sleep from './components/Sleep';
 import List from './components/List';
 import Result from './components/Result';
 import Footer from './components/Footer';
-import ProtectedRoute from './customHook/ProtectedRoute';
-
 
 function App() {
-    const isAuthenticated = Boolean(localStorage.getItem('token'));
+    
     return (
 
         <BrowserRouter>
@@ -23,16 +21,7 @@ function App() {
                     <Route path="/" element={<Home />} />
                     <Route path="/join" element={<Join />} />
                     <Route path="/login" element={<Login />} />
-                    {/* <Route
-                        path="/sleep"
-                        element={
-                            <ProtectedRoute
-                            element={<Sleep />}
-                          />
-                        }
-                    /> */}
                     <Route path='/kakao' element={<Redirection />}></Route>
-
                     <Route path="/sleep" element={<Sleep />} />
                     <Route path="/list" element={<List />} />
                     <Route path="/result" element={<Result />} />
