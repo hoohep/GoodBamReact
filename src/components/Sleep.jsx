@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Footer from './Footer'; // Footer 컴포넌트 import
+import Result from './Result'; // Result 컴포넌트 import
 import styled from 'styled-components';
 
 // 전체 페이지 스타일을 적용하기 위해 컨테이너 컴포넌트 추가
@@ -68,18 +69,9 @@ function Sleep() {
   return (
     <PageContainer>
       <ContentContainer>
-        <h1>당신의 수면 결과</h1>
-        <ul>
-            {sleepData.map((data, index) => (
-                <li key={index}>
-                    {data.name}님의 수면 결과 - 
-                    날짜: {data.date}, 
-                    수면 시간: {data.sleepHours}시간
-                </li>
-            ))}
-        </ul>
+        <Result sleepData={sleepData} />  {/* Result 컴포넌트에 sleepData 전달 */}
       </ContentContainer>
-      <Footer />  {/* Footer 컴포넌트 추가 */}
+      <Footer />
     </PageContainer>
   );
 }
