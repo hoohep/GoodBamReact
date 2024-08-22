@@ -12,11 +12,11 @@ function Sleep() {
       // 사용자 토큰이나 ID를 통해 수면 데이터를 가져옴
       const userId = localStorage.getItem('token'); // 예시로 로컬 스토리지에서 사용자 ID를 가져옴
 
-      if (!userId) {
-        // 비회원 상태일 때 Login 페이지로 리다이렉트
-        navigate('/Login');
-        return;
-      }
+    //   if (!userId) {
+    //     // 비회원 상태일 때 Login 페이지로 리다이렉트
+    //     navigate('/Login');
+    //     return;
+    //   }
  
       // API 호출
       axios.get(`/api/sleep-data/${userId}`)
