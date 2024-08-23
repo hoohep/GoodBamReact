@@ -62,14 +62,22 @@ const Login = () => {
 
             <div className='login-content'>
                 <p>아이디</p>
-                <input type="email" onChange={(e) => setId(e.target.value)} 
-                className='login-input' placeholder='abcde@smhrd.com' /> <br />
+                <input
+                type="email"
+                onChange={(e) => setId(e.target.value)} 
+                className='login-input'
+                placeholder='abcde@smhrd.com'
+                /> <br />
             </div>
 
             <div className='login-content'>
                 <p>비밀번호</p>
-                <input type="password" onChange={(e) => setPw(e.target.value)} 
-                className='login-input' placeholder='영어, 숫자 포함 8자 ~ 16자' /> <br />
+                <input
+                type="password"
+                onChange={(e) => setPw(e.target.value)} 
+                className='login-input'
+                placeholder='영어, 숫자 포함 8자 ~ 16자'
+                /> <br />
             </div>
 
             <div>

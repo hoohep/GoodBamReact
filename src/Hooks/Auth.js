@@ -18,6 +18,7 @@ const useAuth = () => {
             
             // 카카오 액세스 토큰의 경우
             const isKakaoToken = token.startsWith('kakao_'); // 토큰이 카카오 토큰인지 확인하는 로직
+            
             // let isValid = false;
             let isValid = validateToken(token);
 
