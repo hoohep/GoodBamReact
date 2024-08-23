@@ -59,7 +59,7 @@ const Login = () => {
 
         <div className='login-container'>
 
-            <div className='login-title' style={{ color: 'rgb(199 210 254)' }}>
+            <div className='login-title' style={{ color: 'black' }}>
                 Login
             </div>
 
