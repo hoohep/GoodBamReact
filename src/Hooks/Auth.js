@@ -23,7 +23,7 @@ const useAuth = () => {
             let isValid = validateToken(token);
 
             if (isKakaoToken) {
-                const result = await validateKakaoToken(token);
+                const result = await validateKakaoToken(token.substring(6));
                 isValid = result.valid;
             } else {
                 isValid = validateJwtToken(token);
