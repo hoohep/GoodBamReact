@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import '../style/login.css'
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
 
     const [id, setId] = useState('')
@@ -39,7 +40,8 @@ const Login = () => {
                 text: "👏👏",
                 icon: "success"
             });
-            nav('/')
+            nav(-1)
+            
         })
         .catch(error => {
             console.error('error', error);
@@ -48,6 +50,7 @@ const Login = () => {
                 text: "아이디와 비밀번호를 확인해주세요",
                 icon: "error"
             });
+            nav('/')
         });
 
     }

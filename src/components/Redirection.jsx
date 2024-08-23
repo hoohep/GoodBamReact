@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
+
 
 const Redirection = () => {
 
   // const code = window.location.search; // 쿼리스트링(?= 어쩌고)
-  const navigate = useNavigate();
+  const nav = useNavigate();
 
   useEffect(() => {
     const code = new URL(window.location.href).searchParams.get('code'); // 인가 코드
@@ -42,12 +43,12 @@ const Redirection = () => {
         });
 
         // 로그인 성공, 홈으로 이동
-        navigate('/');
+        nav('/');
       })
       .catch((err) => {
         console.error('에러 :' + err); // 에러 처리
       });
-  }, [navigate]);
+  }, [nav]);
 
   return (
 
