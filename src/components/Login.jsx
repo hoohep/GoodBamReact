@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import '../style/login.css'
 import Swal from 'sweetalert2';
 
+
 const Login = () => {
 
     const [id, setId] = useState('')
@@ -39,7 +40,8 @@ const Login = () => {
                 text: "👏👏",
                 icon: "success"
             });
-            nav('/')
+            nav(-1)
+            
         })
         .catch(error => {
             console.error('error', error);
@@ -48,6 +50,7 @@ const Login = () => {
                 text: "아이디와 비밀번호를 확인해주세요",
                 icon: "error"
             });
+            nav('/')
         });
 
     }
@@ -62,14 +65,22 @@ const Login = () => {
 
             <div className='login-content'>
                 <p>아이디</p>
-                <input type="email" onChange={(e) => setId(e.target.value)} 
-                className='login-input' placeholder='abcde@smhrd.com' /> <br />
+                <input
+                type="email"
+                onChange={(e) => setId(e.target.value)} 
+                className='login-input'
+                placeholder='abcde@smhrd.com'
+                /> <br />
             </div>
 
             <div className='login-content'>
                 <p>비밀번호</p>
-                <input type="password" onChange={(e) => setPw(e.target.value)} 
-                className='login-input' placeholder='영어, 숫자 포함 8자 ~ 16자' /> <br />
+                <input
+                type="password"
+                onChange={(e) => setPw(e.target.value)} 
+                className='login-input'
+                placeholder='영어, 숫자 포함 8자 ~ 16자'
+                /> <br />
             </div>
 
             <div>

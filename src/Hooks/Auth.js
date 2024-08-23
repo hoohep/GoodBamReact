@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 const useAuth = () => {
 
-    const navigate = useNavigate();
-
+    const nav = useNavigate();
     useEffect(() => {
         const checkAuth = async () => {
             // 토큰 담기
@@ -12,12 +11,12 @@ const useAuth = () => {
 
             // 토큰이 없으면 로그인 페이지로 리다이렉트
             if (!token) {
-                navigate('/login', { replace: true });
-                return;
+                return nav('/login', { replace: false });
             }
             
             // 카카오 액세스 토큰의 경우
             const isKakaoToken = token.startsWith('kakao_'); // 토큰이 카카오 토큰인지 확인하는 로직
+
             // let isValid = false;
             let isValid = validateToken(token);
 
@@ -30,14 +29,14 @@ const useAuth = () => {
 
             if (!isValid) {
                 localStorage.removeItem('token');  // 유효하지 않은 토큰이면 삭제
-                navigate('/login', { replace: true });  // 로그인 페이지로 리다이렉트
+                nav('/login', { replace: true });  // 로그인 페이지로 리다이렉트
             }
 
         }
 
         checkAuth();
 
-    }, [navigate]);
+    }, [nav]);
 };
 
 const validateJwtToken = (token) => {
