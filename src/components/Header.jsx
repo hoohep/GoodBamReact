@@ -114,7 +114,6 @@ const Header = () => {
       Swal.fire({
         title: "안녕히가세요👋",
         text: "로그아웃 되었습니다.",
-        icon: "warning"
       });
 
       nav('/')

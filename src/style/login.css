@@ -2,13 +2,24 @@
     font-family: pretendard;
 }
 
+.login-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    background-color: white;
+    width: 480px;
+    height: 560px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 10px rgb(173, 173, 173);
+}
+
 /* 타이틀 */
 .login-title {
     margin-top: 2em;
     margin-bottom: 1.6em;
     font-size: 32px;
     font-weight: bold;
-    color: #262626;
+    color: black;
 }
 
 /* 아이디, 비밀번호 입력 */
@@ -17,6 +28,10 @@
     margin-bottom: 14px;
     font-size : 16px;
     color :#262626;
+}
+
+.login-content p{
+    color:#262626;
 }
 
 .login-input{
@@ -38,7 +53,7 @@ input{
 }
 
 input:focus-within{
-    border:1px solid #9e30f4;
+    border:1px solid #6356f8;
 }
 
 input::placeholder{
@@ -49,16 +64,17 @@ input::placeholder{
 .login-btn {
     width:320px;
     height:48px;
-    border:none;
+    border: solid 1px #868686;
     border-radius: 64px;
     cursor:pointer;
     margin-top: 16px;
     font-size: 15px;
+    background-color: #fff;
 }
 
 .login-btn:hover{
-    background-color: #dadada;
-    color:#9e30f4;
+    color:#6356f8;
+    border-color: #6356f8;
 }
 
 .loginKakao-btn {
@@ -74,7 +90,7 @@ input::placeholder{
 
 .loginKakao-btn:hover {
     background-color: #ffec46;
-    color:#9e30f4;
+    color:#3d34a3;
 }
 
 .join-text{

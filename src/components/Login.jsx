@@ -57,7 +57,7 @@ const Login = () => {
 
     return (
 
-        <div>
+        <div className='login-container'>
 
             <div className='login-title' style={{ color: 'rgb(199 210 254)' }}>
                 Login
