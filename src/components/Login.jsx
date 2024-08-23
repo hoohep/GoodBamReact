@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import '../style/login.css'
 import Swal from 'sweetalert2';
+
 
 
 const Login = () => {
@@ -56,39 +57,40 @@ const Login = () => {
     }
 
     return (
+        <div className='login-box'>
+            <div className='login-container'>
 
-        <div className='login-container'>
+                <div className='login-title'>
+                    Login
+                </div>
 
-            <div className='login-title' style={{ color: 'black' }}>
-                Login
+                <div className='login-content'>
+                    <p>아이디</p>
+                    <input
+                    type="email"
+                    onChange={(e) => setId(e.target.value)} 
+                    className='login-input'
+                    placeholder='abcde@smhrd.com'
+                    /> <br />
+                </div>
+
+                <div className='login-content'>
+                    <p>비밀번호</p>
+                    <input
+                    type="password"
+                    onChange={(e) => setPw(e.target.value)} 
+                    className='login-input'
+                    placeholder='영어, 숫자 포함 8자 ~ 16자'
+                    /> <br />
+                </div>
+
+                <div>
+                    <button onClick={tryLoginPost} className='login-btn'>로그인</button> <br />
+                    <button onClick={handleLogin} className='loginKakao-btn'>카카오 로그인</button><br />
+                    <Link to='/join' className='join-text'>회원가입</Link>
+                </div>
+
             </div>
-
-            <div className='login-content'>
-                <p>아이디</p>
-                <input
-                type="email"
-                onChange={(e) => setId(e.target.value)} 
-                className='login-input'
-                placeholder='abcde@smhrd.com'
-                /> <br />
-            </div>
-
-            <div className='login-content'>
-                <p>비밀번호</p>
-                <input
-                type="password"
-                onChange={(e) => setPw(e.target.value)} 
-                className='login-input'
-                placeholder='영어, 숫자 포함 8자 ~ 16자'
-                /> <br />
-            </div>
-
-            <div>
-                <button onClick={tryLoginPost} className='login-btn'>로그인</button> <br />
-                <button onClick={handleLogin} className='loginKakao-btn'>카카오 로그인</button><br />
-                <div className='join-text'><a href='/join'>회원가입</a></div>
-            </div>
-
         </div>
     )
 }

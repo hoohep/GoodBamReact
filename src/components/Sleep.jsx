@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import Footer from './Footer'; // Footer 컴포넌트 import
 import Result from './Result'; // Result 컴포넌트 import
 import styled from 'styled-components';
+import useAuth from '../Hooks/Auth';
 
 // 전체 페이지 스타일을 적용하기 위해 컨테이너 컴포넌트 추가
 const PageContainer = styled.div`
@@ -17,19 +17,18 @@ const ContentContainer = styled.div`
 `;
 
 function Sleep() {
+
   const [sleepData, setSleepData] = useState(null); // 수면 데이터를 저장하는 상태
   const [loading, setLoading] = useState(true);  // 로딩 상태 관리
   const [error, setError] = useState(null);  // 에러 상태 관리
-  const navigate = useNavigate();  // useNavigate 훅을 사용하여 리다이렉트 처리
+  const nav = useNavigate();  // useNavigate 훅을 사용하여 리다이렉트 처리
+  
+  useAuth();
 
   useEffect(() => {
+    
       const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰 가져오기
-
-      if (!token) {
-        navigate('/Login');  // 인증되지 않은 경우 로그인 페이지로 리다이렉트
-        return;
-      }
-
+      
       // API 호출을 통해 수면 데이터 가져오기
       axios.get("http://localhost:8092/result", {
         headers: {
@@ -52,7 +51,7 @@ function Sleep() {
       .finally(() => {
           setLoading(false); // 로딩 상태 해제
       });
-  }, [navigate]);  // 빈 의존성 배열로 컴포넌트가 처음 렌더링될 때만 실행
+  }, [nav]);  // 빈 의존성 배열로 컴포넌트가 처음 렌더링될 때만 실행
 
   if (loading) {
     return <div>Loading...</div>;  // 로딩 중 표시할 문구 또는 스피너
@@ -72,7 +71,6 @@ function Sleep() {
       <ContentContainer>
         <Result sleepData={sleepData} />  {/* Result 컴포넌트에 sleepData 전달 */}
       </ContentContainer>
-      <Footer />
     </PageContainer>
   );
 }

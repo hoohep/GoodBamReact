@@ -35,31 +35,33 @@ const Join = () => {
     }
 
     return (
-        <div>
-            <div className='join-title'>
-                Join
-            </div>
+        <div className='join-box'>
+            <div className='join-container'>
+                <div className='join-title'>
+                    Join
+                </div>
 
-            <div className='join-content'>
-                <p>아이디</p>
-                <input type='email' onChange={(e) => setId(e.target.value)}
-                    className='join-input' placeholder='aabcd@smhrd.com' required></input> <br />
-            </div>
+                <div className='join-content'>
+                    <p>아이디</p>
+                    <input type='email' onChange={(e) => setId(e.target.value)}
+                        className='join-input' placeholder='aabcd@smhrd.com' required></input> <br />
+                </div>
 
-            <div className='join-content'>
-                <p>비밀번호</p>
-                <input type='password' onChange={(e) => setPw(e.target.value)}
-                    className='join-input' placeholder='영어, 숫자 포함 8자 ~ 16자'></input><br />
-            </div>
+                <div className='join-content'>
+                    <p>비밀번호</p>
+                    <input type='password' onChange={(e) => setPw(e.target.value)}
+                        className='join-input' placeholder='영어, 숫자 포함 8자 ~ 16자'></input><br />
+                </div>
 
-            <div className='join-content'>
-                <p>이름</p>
-                <input onChange={(e) => setName(e.target.value)}
-                    className='join-input' placeholder='홍길동'></input><br />
-            </div>
+                <div className='join-content'>
+                    <p>이름</p>
+                    <input onChange={(e) => setName(e.target.value)}
+                        className='join-input' placeholder='홍길동'></input><br />
+                </div>
 
-            <div>
-                <button className='join-btn' onClick={tryJoinPost}>가입하기</button>
+                <div>
+                    <button className='join-btn' onClick={tryJoinPost}>가입하기</button>
+                </div>
             </div>
         </div>
     )

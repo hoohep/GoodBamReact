@@ -2,6 +2,12 @@
     font-family: pretendard;
 }
 
+.login-box{
+    display: flex;
+    justify-content: center;
+    margin-top: 4em;
+}
+
 .login-container{
     display: flex;
     flex-direction: column;
@@ -10,13 +16,14 @@
     width: 480px;
     height: 560px;
     border-radius: 20px;
-    box-shadow: 0px 0px 10px rgb(173, 173, 173);
+    box-shadow: 0px 0px 10px rgb(221, 221, 221);
 }
+
 
 /* 타이틀 */
 .login-title {
     margin-top: 2em;
-    margin-bottom: 1.6em;
+    margin-bottom: 1em;
     font-size: 32px;
     font-weight: bold;
     color: black;
@@ -40,20 +47,19 @@
     margin-top:8px;
     margin-bottom: 8px;
     background-color: white;
-    border: 1px solid #e2e0c0; 
+    border: 1.5px solid #c0d6e2; 
 }
 
 input{
     width:320px;
     outline:none;
-    border:none;
     height: 18px;
     font-size: 16px;
     font-weight: 400;
 }
 
 input:focus-within{
-    border:1px solid #6356f8;
+    border:1.5px solid #6356f8;
 }
 
 input::placeholder{
@@ -64,7 +70,7 @@ input::placeholder{
 .login-btn {
     width:320px;
     height:48px;
-    border: solid 1px #868686;
+    border: solid 1.5px #c0d6e2;
     border-radius: 64px;
     cursor:pointer;
     margin-top: 16px;
@@ -84,27 +90,28 @@ input::placeholder{
     border:none;
     border-radius: 64px;
     cursor:pointer;
-    margin-top: 8px;
+    margin: 10px 0;
     font-size: 15px;
 }
 
 .loginKakao-btn:hover {
     background-color: #ffec46;
-    color:#3d34a3;
+    color:#6356f8;
 }
 
 .join-text{
-    margin-top: 1.5em;
     font-size: 15px;
-}
-
-.join-text a{
     text-decoration: none;
 }
 
+.join-text:hover {
+    text-decoration: underline;
+  }
+  
+
 /* 320px보다 작은 화면일 때 */
 @media screen and (max-width: 320px) {
-    input, .login-btn, .loginKakao-btn{
+    .login-container, input, .login-btn, .loginKakao-btn{
         width: 100%;
     }
   }

@@ -5,6 +5,13 @@
     align-items: center;
 }
 
+.list-title{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 32px;
+    font-weight: bold;
+}
+
 .list-content{
     width: 480px;
     height: 48px;
@@ -23,6 +30,8 @@
 
 .list-content:hover{
     transform: scale(1.05);
+    border-color: #6356f8;
+    box-shadow: 0px 0px 10px #6356f8;
     /* background-color: pink; */
 }
 
