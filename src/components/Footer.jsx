@@ -19,7 +19,8 @@ const Footer = () => {
   return (
     <FooterStyle>
         <div className='footer-container'>
-            Copyright © 2024 Backpackr All right reserved.
+            COPYRIGHT © 2024 GOODBAM, ALL RIGHTS RESERVED
+
         </div>
     </FooterStyle>
   );

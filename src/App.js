@@ -1,6 +1,5 @@
 import './style/main.css'
-import Header from './components/Header';
-import { BrowserRouter, Routes, Route, useNavigate, Navigate } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './components/Home';
 import Redirection from './components/Redirection';
 import Join from './components/Join';
@@ -9,6 +8,7 @@ import Sleep from './components/Sleep';
 import List from './components/List';
 import Result from './components/Result';
 import Footer from './components/Footer';
+import Header from './components/Header';
 
 function App() {
     
@@ -26,7 +26,7 @@ function App() {
                     <Route path="/list" element={<List />} />
                     <Route path="/result" element={<Result />} />
                 </Routes>
-                <Footer />  {/* 모든 페이지에 Footer 표시 */}
+                <Footer />
             </div>
         </BrowserRouter>
     );
