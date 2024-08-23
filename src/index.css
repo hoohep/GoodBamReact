@@ -3,7 +3,8 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('https://i.imgur.com/Zw6oxVE.png');
+  /* background-image: url('https://i.imgur.com/Zw6oxVE.png'); */
+  background-image: linear-gradient(180deg,#2b2d38,#040406, #17134f);
   background-size: cover;   /* 이미지를 화면에 꽉 채우기 */
   background-position: center; /* 이미지를 가운데에 위치 */
   background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정 */
@@ -17,7 +18,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, div, span {
-  color: rgb(199 210 254); /* 모든 텍스트 요소를 흰색으로 설정 */
+  color:#fff; /* 모든 텍스트 요소를 흰색으로 설정 */
 }
 
 code {

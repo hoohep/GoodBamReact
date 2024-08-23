@@ -6,14 +6,13 @@ const FooterStyle = styled.footer`
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 1rem;
-        color: #333; /* 글자색 설정 */
-        height: 60px; /* 적절한 높이 설정 */
+        padding: 0.5rem;
+        color: #e9e9e9;
+        height: 50px; /* 적절한 높이 설정 */
         width: 100%; /* 너비를 화면 전체로 설정 */
         position: fixed; /* 푸터를 페이지 하단에 고정 */
         bottom: 0; /* 페이지 하단에 위치 */
-        color: white; /* 글자색 설정 */
-        font-family: "Quicksand", sans-serif; /* Google Fonts에서 가져온 폰트 적용 */
+        font-size : 14px;
     }
 `;
 

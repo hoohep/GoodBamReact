@@ -8,7 +8,7 @@ import axios from 'axios'
 
 
 const HeaderStyle = styled.header`
-  background-color: navy;
+  background-color: #252730;
   width: 100%;
   padding: 10px 12px 8px 12px;
   display: flex;
@@ -49,7 +49,7 @@ const NavMenu = styled.ul`
   li {
     &:hover {
       cursor: pointer;
-      background: #44a8f4;
+      background-color: #3d34a3;
       border-radius: 4px;
     }
   }

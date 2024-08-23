@@ -5,8 +5,6 @@
     align-items: center;
 }
 
-
-
 .list-content{
     width: 480px;
     height: 48px;
@@ -17,9 +15,10 @@
     padding: 0 18px;
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgb(173, 173, 173);
-
+    background-color: #ffffff;
     transition: transform 0.2s ease;
     margin-top: 1.4em;
+    color: black;
 }
 
 .list-content:hover{
@@ -27,3 +26,6 @@
     /* background-color: pink; */
 }
 
+.list-link{
+    text-decoration: none;
+}
