@@ -1,5 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
 body {
   margin: 0;
+  padding: 0;
+  background-image: url('https://i.imgur.com/Zw6oxVE.png');
+  background-size: cover;   /* 이미지를 화면에 꽉 채우기 */
+  background-position: center; /* 이미지를 가운데에 위치 */
+  background-repeat: no-repeat; /* 이미지를 반복하지 않도록 설정 */
+  height: 100vh; /* 화면 전체 높이를 차지하도록 설정 */
+  color: rgb(199 210 254); /* 기본 텍스트 색상을 흰색으로 설정 */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -7,7 +16,21 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4, h5, h6, p, div, span {
+  color: rgb(199 210 254); /* 모든 텍스트 요소를 흰색으로 설정 */
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.join-text a {
+  color: rgb(199 210 254); /* 회원가입 텍스트 색상을 흰색으로 설정 */
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.join-text a:hover {
+  text-decoration: underline;
 }

@@ -56,7 +56,7 @@ const Login = () => {
 
         <div>
 
-            <div className='login-title'>
+            <div className='login-title' style={{ color: 'rgb(199 210 254)' }}>
                 Login
             </div>
 

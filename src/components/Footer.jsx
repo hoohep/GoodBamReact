@@ -12,6 +12,8 @@ const FooterStyle = styled.footer`
         width: 100%; /* 너비를 화면 전체로 설정 */
         position: fixed; /* 푸터를 페이지 하단에 고정 */
         bottom: 0; /* 페이지 하단에 위치 */
+        color: white; /* 글자색 설정 */
+        font-family: "Quicksand", sans-serif; /* Google Fonts에서 가져온 폰트 적용 */
     }
 `;
 
