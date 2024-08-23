@@ -31,8 +31,9 @@ function Sleep() {
       }
 
       // API 호출을 통해 수면 데이터 가져오기
-      axios.get(`/api/sleep-data`, {
+      axios.get("http://localhost:8092/result", {
         headers: {
+          'Content-Type': 'application/json',
           Authorization: `Bearer ${token}`
         }
       })
