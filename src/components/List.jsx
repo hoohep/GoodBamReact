@@ -27,15 +27,14 @@ const List = () => {
           }
         })
         .then(response => {
-            const data = response.data;
-            console.log('list:'+response.data);
+            const data = JSON.stringify(response.data);
+            console.log('data'+data);
             
             if (!data) {
                 setSleepList(null); // 데이터가 없으면 null로 설정
             } else {
                 setSleepList(data); // 데이터를 상태에 저장
             }
-            console.log('data:'+data);
             
         })
 
