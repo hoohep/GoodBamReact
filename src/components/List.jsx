@@ -4,13 +4,13 @@ import '../style/list.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListMap from './ListMap';
-import data from '../json/resultList.json'
+import data from '../json/resultList.json';
 
 
 const List = () => {
     const nav = useNavigate();
 
-    const [sleepData, setSleepData] = useState(null); // 수면 데이터를 저장하는 상태
+    const [sleepList, setSleepList] = useState(null); // 수면 데이터를 저장하는 상태
 
     useAuth()   // 유효성 검사
     
@@ -30,10 +30,10 @@ const List = () => {
             const data = response.data;
             console.log('list:'+response.data);
             
-            if (!data || data.length === 0) {
-                setSleepData(null); // 데이터가 없으면 null로 설정
+            if (!data) {
+                setSleepList(null); // 데이터가 없으면 null로 설정
             } else {
-                setSleepData(data); // 데이터를 상태에 저장
+                setSleepList(data); // 데이터를 상태에 저장
             }
             console.log('data:'+data);
             

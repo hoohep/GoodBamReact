@@ -138,6 +138,11 @@ const Header = () => {
               전체기록보기
             </Link>
           </li>
+          <li>
+            <Link to={'/video'} className='nav-menu-list'>
+              영상 테라피
+            </Link>
+          </li>
           {!isLogin ?
             <li>
               <Link to={'/login'} className='nav-menu-list'>

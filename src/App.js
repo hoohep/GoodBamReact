@@ -9,6 +9,7 @@ import List from './components/List';
 import Result from './components/Result';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import Video from './components/Video';
 
 function App() {
     
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/sleep" element={<Sleep />} />
                     <Route path="/list" element={<List />} />
                     <Route path="/result" element={<Result />} />
+                    <Route path="/video" element={<Video />} />
                 </Routes>
                 <Footer />
             </div>
