@@ -34,7 +34,7 @@ const Redirection = () => {
         // navigate('/loginSuccess', { state: { token : res.data} });
 
         // 액세스 토큰을 localStorage에 저장
-        localStorage.setItem('token', `kakao_${res.data.access_token}`);
+        localStorage.setItem('token', res.data);
 
         Swal.fire({
           title: "로그인 성공!",
@@ -42,8 +42,8 @@ const Redirection = () => {
           icon: "success"
         });
 
-        // 로그인 성공, 홈으로 이동
-        nav('/');
+        // 로그인 성공, 해당 페이지로 이동
+        nav(-2);
       })
       .catch((err) => {
         console.error('에러 :' + err); // 에러 처리

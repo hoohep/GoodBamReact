@@ -8,9 +8,9 @@ import Swal from 'sweetalert2';
 
 const Login = () => {
 
+    const nav = useNavigate();
     const [id, setId] = useState('')
     const [pw, setPw] = useState('')
-    const nav = useNavigate();
 
     // 카카오 API 로그인
     const rest_api_key = '0196bd96b83188ce5806bb730eff40d5';
@@ -53,7 +53,6 @@ const Login = () => {
             });
             nav('/')
         });
-
     }
 
     return (

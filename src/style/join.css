@@ -73,15 +73,15 @@ input::placeholder{
     border-radius: 64px;
     cursor:pointer;
     margin-top: 1em;
-    background-color: #fff;
-    border: solid 1.5px #6356f8;
+    background-color: #6356f8;;
+    border: solid 1px #6356f8;
     font-size: 15px;
-    color: #6356f8;
+    color: #fff;
 }
 
 .join-btn:hover{
-    background-color: #6356f8;
-    color: white;
+    background-color: #fff;
+    color: #6356f8;;
 }
 
 /* 320px보다 작은 화면일 때 */

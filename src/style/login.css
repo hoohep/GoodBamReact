@@ -70,17 +70,18 @@ input::placeholder{
 .login-btn {
     width:320px;
     height:48px;
-    border: solid 1.5px #c0d6e2;
+    border: solid 1.5px #6356f8;
     border-radius: 64px;
     cursor:pointer;
     margin-top: 16px;
     font-size: 15px;
-    background-color: #fff;
+    background-color: #6356f8;
+    color: #fff;
 }
 
 .login-btn:hover{
-    color:#6356f8;
-    border-color: #6356f8;
+    background-color: #fff;
+    color: #6356f8;;
 }
 
 .loginKakao-btn {
