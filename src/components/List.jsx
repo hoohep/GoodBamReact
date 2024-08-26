@@ -28,16 +28,15 @@ const List = () => {
         })
         .then(response => {
             const data = JSON.stringify(response.data);
-            console.log('data'+data);
+            // console.log('data'+data);
             
-            if (!data) {
-                setSleepList(null); // 데이터가 없으면 null로 설정
-            } else {
-                setSleepList(data); // 데이터를 상태에 저장
-            }
+            // if (!data) {
+            //     setSleepList(null); // 데이터가 없으면 null로 설정
+            // } else {
+            //     setSleepList(data); // 데이터를 상태에 저장
+            // }
             
         })
-
 
 
     }, [nav])
@@ -55,24 +54,6 @@ const List = () => {
                     <ListMap key={item.no} item={item} />
                 ))}
             </Link>
-
-
-
-            {/* <div className='list-content'>
-            <li>2024년 7월 10일</li>
-            <li><FaExclamationCircle style={{width:'24px',height:'24px', color:'#333333'}}/></li>
-          </div> */}
-
-            {/* <div className='list-content'>
-          <li>2024년 6월 08일</li>
-          <li><FaExclamationCircle style={{width:'24px',height:'24px', color:'#333333'}}/></li>
-        </div>
-        
-        <div className='list-content'>
-          <li>2024년 5월 16일</li>
-          <li><FaExclamationCircle style={{width:'24px', height:'24px', color:'#333333'}}/></li>
-        </div> */}
-
         </div>
     )
 }

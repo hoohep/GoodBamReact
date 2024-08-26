@@ -11,7 +11,6 @@ const Video = () => {
 
     return (
         <div>
-
             <div className='video-title'>
                 수면 영상 테라피
                 <p>하루의 끝을 마무리하며 잠 못드는 밤, 함께 잠들어요</p>
