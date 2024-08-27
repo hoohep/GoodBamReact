@@ -87,7 +87,7 @@ const Login = () => {
                     <button onClick={tryLoginPost} className='login-btn'>로그인</button> <br />
                     <button onClick={handleLogin} className='loginKakao-btn'>카카오 로그인</button><br />
                     <Link to='/join' className='join-text'>회원가입</Link>
-                </div>
+                </div>  
 
             </div>
         </div>

@@ -43,7 +43,7 @@ const Redirection = () => {
         });
 
         // 로그인 성공, 해당 페이지로 이동
-        nav(-2);
+        nav('/');
       })
       .catch((err) => {
         console.error('에러 :' + err); // 에러 처리
