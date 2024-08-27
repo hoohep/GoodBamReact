@@ -118,7 +118,6 @@ const Home = () => {
           )
         ))}
       </ContentContainer>
-      <Footer />
     </PageContainer>
   );
 };
