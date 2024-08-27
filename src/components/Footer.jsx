@@ -8,21 +8,19 @@ const FooterStyle = styled.footer`
         align-items: center;
         padding: 0.5rem;
         color: #e9e9e9;
-        height: 50px; /* 적절한 높이 설정 */
-        width: 100%; /* 너비를 화면 전체로 설정 */
-        position: fixed; /* 푸터를 페이지 하단에 고정 */
-        bottom: 0; /* 페이지 하단에 위치 */
-        font-size : 14px;
+        height: 50px;
+        width: 100%;
+        font-size: 14px;
+        background-color: transparent; /* 배경색을 투명하게 설정 */
     }
 `;
 
 const Footer = () => {
   return (
     <FooterStyle>
-        <div className='footer-container'>
-            COPYRIGHT © 2024 GOODBAM, ALL RIGHTS RESERVED
-
-        </div>
+      <div className="footer-container">
+        COPYRIGHT © 2024 GOODBAM, ALL RIGHTS RESERVED
+      </div>
     </FooterStyle>
   );
 }
