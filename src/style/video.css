@@ -21,16 +21,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    border-radius: 20px;
-    width: 620px;
-    height: 460px;
-    box-shadow: 0px 0px 10px rgb(221, 221, 221);
-    margin-bottom: 40px;
+    width: 100%;
 }
 
+
 .video-content iframe{
-    width: 600px;
+    width: 700px;
     height: 440px;
     border-style: none;
+    box-shadow: 0px 0px 10px rgb(221, 221, 221);
+    margin: 40px;
 }
+
+/* 320px보다 작은 화면일 때 */
+@media screen and (max-width: 768px) {
+    .video-content, div{
+        width: 100%;
+    }
+  }
