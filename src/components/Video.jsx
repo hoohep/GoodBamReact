@@ -16,7 +16,7 @@ const Video = () => {
                 <p>하루의 끝을 마무리하며 잠 못드는 밤, 함께 잠들어요</p>
             </div>
 
-            <div className='video-content'>
+            <div className='video-container'>
                 {data.video.map((item) => (
                     <VideoMap key={item.no} item={item} />      
                 ))}

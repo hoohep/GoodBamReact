@@ -4,7 +4,7 @@ import '../style/video.css'
 const VideoMap = ({item}) => {
   return (
     <div>
-        <div className='video-container'>
+        <div className='video-content'>
             <iframe src={item.url}/>
         </div>
     </div>
