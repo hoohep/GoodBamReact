@@ -6,6 +6,7 @@ import '../style/video.css'
 const Video = () => {
 
     // useAuth();
+    
     const [currentVideos, setCurrentVideos] = useState([]);
     const [page, setPage] = useState(1);
     const itemsPerPage = 5;
@@ -29,8 +30,6 @@ const Video = () => {
             .map(index => data.video[index]);
         setCurrentVideos(prevVideos => [...prevVideos, ...newVideos]);
     };
-
-    // console.log(data.video);
 
     // 스크롤 이벤트 처리
     const handleScroll = () => {

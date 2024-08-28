@@ -59,14 +59,14 @@
   /* 최상단으로 이동 버튼 */
 .scroll-to-top-button {
     position: fixed;
-    bottom: 70px;
+    bottom: 40px;
     right: 54px;
     background: linear-gradient(135deg, #6e8efb, #a777e3); /* 그라데이션 배경 */
     color: white;
     border: none;
     border-radius: 50%;
-    width: 90px; /* 버튼 크기 */
-    height: 90px; /* 버튼 크기 */
+    width: 86px; /* 버튼 크기 */
+    height: 86px; /* 버튼 크기 */
     display: none; /* 초기에는 숨김 */
     cursor: pointer;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 부드러운 그림자 */
