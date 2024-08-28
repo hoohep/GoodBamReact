@@ -1,10 +1,13 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 
-
-function Result() {
+function Result({ sleepData: propsSleepData }) {
   const location = useLocation();
-  const sleepData = location.state?.sleepData; // 전달된 수면 데이터
+  const stateSleepData = location.state?.sleepData; // 전달된 수면 데이터
+
+  // props로 전달된 sleepData를 우선 사용하고, 없다면 location.state로부터 가져옵니다.
+  const sleepData = propsSleepData || stateSleepData;
+
   if (!sleepData) {
     return <div>수면 데이터가 없습니다.</div>;
   }
