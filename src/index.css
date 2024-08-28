@@ -6,7 +6,7 @@ body {
   display: flex;
   flex-direction: column;
   background-image: 
-    url('https://i.imgur.com/zmkF7zb.png'),
+    url('https://i.imgur.com/kqk5BKZ.png'),
     linear-gradient(180deg,#2b2d38,#040406, #17134f);
   background-size: cover; /* 이미지를 화면에 꽉 채우기 */
   background-position: center; /* 이미지를 가운데에 위치 */

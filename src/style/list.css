@@ -39,7 +39,7 @@
     text-decoration: none;
 }
 
-/* 320px보다 작은 화면일 때 */
+/* 480px보다 작은 화면일 때 */
 @media screen and (max-width: 480px) {
     .list-content{
         width: 100%;
