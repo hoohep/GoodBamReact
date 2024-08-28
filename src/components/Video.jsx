@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from 'react'
-import useAuth from '../Hooks/Auth';
+// import useAuth from '../Hooks/Auth';
 import data from '../json/videoList.json';
 import '../style/video.css'
 
 const Video = () => {
 
-    useAuth();
+    // useAuth();
     const [currentVideos, setCurrentVideos] = useState([]);
     const [page, setPage] = useState(1);
     const itemsPerPage = 5;
     const loader = useRef(null);
+    const scrollToTopButton = useRef(null);
 
     // 랜덤 인덱스 배열 생성 함수
     const getRandomIndexArray = (length) => {
@@ -43,8 +44,23 @@ const Video = () => {
                     return nextPage;
                 });
             }
+            // 스크롤 위치에 따라 버튼 보이기/숨기기
+            if (window.scrollY > 300) {
+                scrollToTopButton.current.style.display = 'block';
+            } else {
+                scrollToTopButton.current.style.display = 'none';
+            }
         }
     };
+
+    // 페이지 최상단으로 스크롤
+    const scrollToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    };
+
 
     useEffect(() => {
         // 새로고침 시 랜덤 비디오 로드
@@ -67,16 +83,23 @@ const Video = () => {
 
                 <div className='video-content'>
                     {currentVideos.map(video => (
-                        
-                            <iframe key={video.no} src={video.url} />
-                        
+
+                        <iframe key={video.no} src={video.url} />
+
                     ))}
                 </div>
 
                 <div ref={loader} className='loading'>
                     Loading more videos...
                 </div>
-
+                {/* 최상단으로 이동 버튼 */}
+                <button
+                    className='scroll-to-top-button'
+                    ref={scrollToTopButton}
+                    onClick={scrollToTop}
+                >
+                    Top
+                </button>
             </div>
 
         </div>
