@@ -38,6 +38,7 @@ function Sleep() {
       })
       .then(response => {
           const data = response.data;
+          console.log(data);
           if (!data || data.length === 0) {
               setSleepData(null); // 데이터가 없으면 null로 설정
           } else {

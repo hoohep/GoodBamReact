@@ -1,6 +1,10 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 
-function Result({ sleepData }) {
+
+function Result() {
+  const location = useLocation();
+  const sleepData = location.state?.sleepData; // 전달된 수면 데이터
   if (!sleepData) {
     return <div>수면 데이터가 없습니다.</div>;
   }
