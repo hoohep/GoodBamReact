@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import homeLogo from '../assets/title.png'
 
 const PageContainer = styled.div`
   display: flex;
@@ -16,12 +17,15 @@ const ContentContainer = styled.div`
   flex-grow: 1;
 `;
 
-const MainHeader = styled.div`
+const MainTitle = styled.div`
   margin-bottom: 50px;
+  width: 100%;
+  height: 500px;
+  background-color: pink;
 `;
 
 const Section = styled.section`
-  margin: 0 auto 40px auto;
+  margin: 0 auto 30px auto;
   padding: 10px;
   border: none;
   border-radius: 8px;
@@ -52,7 +56,7 @@ const SlideContent = styled.div`
 
 const Home = () => {
   const [sections, setSections] = useState([
-    { id: 1, title: '회사 소개', content: '회사 소개 내용이 여기에 들어갑니다. 회사의 비전, 역사, 팀 구성 등을 포함할 수 있습니다.' },
+    { id: 1, title: '굿밤, Good Bam', content: '걸음수, 소모칼로리 등의 생활패턴을 기반으로 나의 수면상태를 분석해보자!' },
     { id: 2, title: '서비스 장점', content: '서비스 장점 소개 내용이 여기에 들어갑니다. 서비스의 특징, 혜택, 사용자 리뷰 등을 포함할 수 있습니다.' },
     { id: 3, title: '추가 탭 1', content: '추가 탭 1의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
     { id: 4, title: '추가 탭 2', content: '추가 탭 2의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
@@ -95,10 +99,11 @@ const Home = () => {
   return (
     <PageContainer>
       <ContentContainer>
-        <MainHeader>
-          <h2>Main 홈</h2>
-          <p>환영합니다!</p>
-        </MainHeader>
+        <MainTitle>
+          <h2>굿밤, Good Bam</h2>
+          <p>걸음수, 소모칼로리 등의 생활패턴을 기반으로 나의 수면상태를 분석해보자!</p>
+          <img src={homeLogo} style={{width:'300px'}}></img>
+        </MainTitle>
         {sections.map((section) => (
           section.title === '서비스 장점' ? (
             <Section key={section.id}>

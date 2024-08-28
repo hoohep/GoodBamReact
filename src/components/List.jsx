@@ -4,7 +4,7 @@ import '../style/list.css'
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListMap from './ListMap';
-
+import Avatar from "boring-avatars";
 
 const List = () => {
 
@@ -27,7 +27,7 @@ const List = () => {
                 const data = JSON.stringify(response.data);
                 // console.log(data);
                 setSleepList(JSON.parse(data));
-                console.log(sleepList);
+                // console.log(sleepList);
             })
     }, [])
 
@@ -38,6 +38,8 @@ const List = () => {
             <div className='list-title'>
                 Sleep List
             </div>
+
+            <Avatar name="Margaret Chase" variant="beam" size={88}/>
 
             <Link to={'/result'} className='list-link'>
                 {sleepList.map((item) => (
