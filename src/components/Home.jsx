@@ -4,7 +4,12 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import homeLogo from '../assets/title.png'
+import homeImg1 from '../assets/home_img01.png'
+import modal from '../assets/modal.png'
+import service1 from '../assets/service_img01.png'
+import service2 from '../assets/service_img02.png'
 import { motion } from 'framer-motion';
+
 
 const PageContainer = styled.div`
   display: flex;
@@ -28,19 +33,23 @@ const MainTitle = styled.div`
 `;
 
 const Section = styled.section`
-  margin: 0 auto 30px auto;
+  margin: 0 auto 40px auto;
   padding: 10px;
   border: none;
   border-radius: 8px;
   background-color: #f9f9f9;
   max-width: 800px;
   width: 100%;
+
+  img {
+    margin-top: 20px;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 2em;
-  margin-bottom: 30px;
-  color: #000;
+  margin-top: 20px;
+  color: #333333;
 `;
 
 const Paragraph = styled.p`
@@ -51,16 +60,23 @@ const Paragraph = styled.p`
 
 const SlideContent = styled.div`
   padding: 20px;
-  background-color: #f1f1f1;
   border-radius: 8px;
-  color: #000; /* 글씨 색상을 검정색으로 설정 */
   text-align: center;
+  height: 260px;
+  color: #6356F8;
+  font-size: 22px;
+  font-weight: bold;
+
+  img {
+    display: block;
+    margin: 10px auto;
+  }
 `;
 
 const Home = () => {
     const [sections, setSections] = useState([
-        { id: 1, title: '굿밤, Good Bam', content: '걸음수, 소모칼로리 등의 생활패턴을 기반으로 나의 수면상태를 분석해보자!' },
-        { id: 2, title: '서비스 장점', content: '서비스 장점 소개 내용이 여기에 들어갑니다. 서비스의 특징, 혜택, 사용자 리뷰 등을 포함할 수 있습니다.' },
+        { id: 1, title: '하루의 마무리를 함께 해요.', content: '잠못드는 밤, 굿밤과 함께라면' , img: `${homeImg1}` },
+        { id: 2, title: 'Our Service', content: '서비스 장점 소개 내용이 여기에 들어갑니다. 서비스의 특징, 혜택, 사용자 리뷰 등을 포함할 수 있습니다.' },
         { id: 3, title: '추가 탭 1', content: '추가 탭 1의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
         { id: 4, title: '추가 탭 2', content: '추가 탭 2의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
         { id: 5, title: '추가 탭 3', content: '추가 탭 3의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
@@ -91,7 +107,7 @@ const Home = () => {
     const sliderSettings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -102,6 +118,8 @@ const Home = () => {
     return (
         <PageContainer>
             <ContentContainer>
+                
+                {/* 최상단 타이틀 */}
                 <MainTitle>
                     <motion.img src={homeLogo}
                         style={{ width: '360px' }}
@@ -115,49 +133,85 @@ const Home = () => {
                     />
                     <div>
                         <h1 style={{ fontSize: '36px' }}>굿밤, Good Bam</h1>
-                        <p>
+                        <p style={{ marginRight: '30px' ,marginTop: '10px'}}>
                             굿밤 서비스는 사용자의 생활패턴을 기반으로 나의 수면상태를<br /> 분석하여 맞춤형 솔루션을 제공하는 서비스입니다.
                             <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.</p>
                     </div>
                 </MainTitle>
 
                 {sections.map((section) => (
-                    section.title === '서비스 장점' ? (
+                    // 슬라이드하는 모달
+                    section.title === 'Our Service' ? (
+                        // 모션 애니메이션 속성
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
                             transition={{
                                 ease: 'easeInOut',
                                 duration: 2,
-                                x: { duration: 1 },
+                                y: { duration: 1 },
                             }}>
                             <Section key={section.id}>
                                 <Title>{section.title}</Title>
+
+                                {/* 슬라이드 */}
                                 <Slider {...sliderSettings}>
-                                    <SlideContent>서비스 장점 1: 뛰어난 성능</SlideContent>
-                                    <SlideContent>서비스 장점 2: 사용자 친화적</SlideContent>
-                                    <SlideContent>서비스 장점 3: 높은 안정성</SlideContent>
+                                    <SlideContent>생활패턴 기반 수면분석
+                                        <img src={modal} />
+                                    </SlideContent>
+                                    <SlideContent>분석 결과와 솔루션 제공
+                                        <img src={service2} />
+                                    </SlideContent>
+                                    <SlideContent>수면 질 향상을 위한 영상 테라피
+                                        <img src={service1} />
+                                    </SlideContent>
                                 </Slider>
+
                             </Section>
                         </motion.div>
-                    ) : (
+                    )
+                    :
+                    (
+                        // 그 외 모든 모달
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
                             transition={{
                                 ease: 'easeInOut',
                                 duration: 2,
-                                x: { duration: 1 },
+                                y: { duration: 1 },
                             }}>
                             <Section key={section.id}>
                                 <Title>{section.title}</Title>
                                 <Paragraph>{section.content}</Paragraph>
+
+                                <motion.img src={section.img} style={{ height: '400px' }}
+                                    initial={{ opacity: 0, y: 50 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: false }}
+                                    transition={{
+                                        ease: 'easeInOut',
+                                        duration: 2,
+                                        y: { duration: 1 },
+                                    }} />
                             </Section>
                         </motion.div>
                     )
                 ))}
+
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false }}
+                    transition={{
+                        ease: 'easeInOut',
+                        duration: 2,
+                        y: { duration: 1 },
+                    }}>
+                        새로운 공간
+                </motion.div>
             </ContentContainer>
         </PageContainer>
     );
