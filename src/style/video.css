@@ -39,4 +39,45 @@
     .video-content{
         width: 100%;
     }
+    .video-content iframe {
+        width: 100%; /* 모바일 화면에서 iframe 크기 조정 */
+        /* height: auto; 자동 높이 조정 */
+    }
   }
+
+  /* 최상단으로 이동 버튼 */
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 70px;
+    right: 54px;
+    background: linear-gradient(135deg, #6e8efb, #a777e3); /* 그라데이션 배경 */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 90px; /* 버튼 크기 */
+    height: 90px; /* 버튼 크기 */
+    display: none; /* 초기에는 숨김 */
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 부드러운 그림자 */
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 60px; /* 텍스트 수직 중앙 정렬 */
+    transition: opacity 0.3s, transform 0.3s; /* 애니메이션 효과 */
+    z-index: 1000;
+}
+
+.scroll-to-top-button.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.scroll-to-top-button:hover {
+    background: linear-gradient(135deg, #a777e3, #6e8efb); /* 호버 시 그라데이션 반전 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 강도 증가 */
+}
+
+.scroll-to-top-button:focus {
+    outline: none; /* 포커스 아웃라인 제거 */
+}
