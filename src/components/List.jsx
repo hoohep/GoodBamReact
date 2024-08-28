@@ -1,16 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import useAuth from '../Hooks/Auth'
 import '../style/list.css'
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListMap from './ListMap';
-import Avatar from "boring-avatars";
 
 const List = () => {
 
     useAuth()   // 유효성 검사
     const [sleepList, setSleepList] = useState([]); // 수면 데이터를 저장하는 상태
-
+    const navigate = useNavigate(); // 페이지 이동을 위한 navigate 훅
     // 서버에서 데이터 가져오기
     useEffect(() => {
         //토큰 가져오기
@@ -24,31 +23,32 @@ const List = () => {
             }
         })
             .then(response => {
-                const data = JSON.stringify(response.data);
-                // console.log(data);
-                setSleepList(JSON.parse(data));
+                // const data = JSON.stringify(response.data);
+                const data = response.data;
+                console.log(data);
+                setSleepList(data);
+                // setSleepList(JSON.parse(data));
                 // console.log(sleepList);
             })
     }, [])
 
-    return (
+   // 특정 항목 클릭 시 Result 페이지로 이동하며 데이터 전달
+   const handleItemClick = (item) => {
+    navigate('/result', { state: { sleepData: item } });
+};
 
-        <div className='list-container'>
-
-            <div className='list-title'>
-                Sleep List
-            </div>
-
-            <Avatar name="Margaret Chase" variant="beam" size={88}/>
-
-            <Link to={'/result'} className='list-link'>
-                {sleepList.map((item) => (
-                    <ListMap key={item.id} item={item} />
-                ))}
-            </Link>
-
+return (
+    <div className='list-container'>
+        <div className='list-title'>
+            Sleep List
         </div>
-    )
-}
+        {sleepList.map((item) => (
+            <div key={item.id} onClick={() => handleItemClick(item)}>
+                <ListMap item={item} />
+            </div>
+        ))}
+    </div>
+);
+};
 
-export default List
+export default List;
