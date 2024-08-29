@@ -3,6 +3,7 @@ import useAuth from '../Hooks/Auth';
 import '../style/list.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import styled from 'styled-components';
 import ListMap from './ListMap';
 import img1 from '../assets/imogi1.png';
 
@@ -10,6 +11,20 @@ const List = () => {
     useAuth();   // 유효성 검사
     
     const nav = useNavigate(); // 페이지 이동을 위한 navigate 훅
+
+    // Footer 스타일 정의
+    const Footer = styled.footer`
+        position: fixed;
+        bottom: 0;
+        left: 0;  /* 화면 왼쪽 끝으로부터 위치를 설정 */
+        width: 100%;
+        font-size: 14px;
+        background-color: transparent;
+        color: #fff;
+        text-align: center; /* 텍스트를 중앙 정렬 */
+        padding: 1em 0;
+        box-sizing: border-box; /* 패딩을 포함하여 폭을 계산 */
+    `;
 
     const [sleepList, setSleepList] = useState(null); // 수면 데이터를 저장하는 상태, 초기값을 null로 설정
     const [error, setError] = useState(null); // 오류를 저장하는 상태
@@ -81,6 +96,9 @@ const List = () => {
                     ))
                 )
             )}
+            <Footer>
+            COPYRIGHT © 2024 GOODBAM, ALL RIGHTS RESERVED
+            </Footer>
             </div>
         </div>
     );
