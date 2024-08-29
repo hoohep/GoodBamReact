@@ -10,7 +10,6 @@ import service1 from '../assets/service_img01.png'
 import service2 from '../assets/service_img02.png'
 import { motion } from 'framer-motion';
 
-
 const PageContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -28,8 +27,50 @@ const MainTitle = styled.div`
   height: 500px;
   display: flex;
   justify-content: center;
-  align-items : center;
-  text-align : left;
+  align-items: center;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
+const TextContainer = styled.div`
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px; /* 아래 공간 추가 */
+  }
+`;
+
+const MainText = styled.h1`
+  font-size: 36px;
+
+  @media (max-width: 768px) {
+    font-size: 24px;
+  }
+`;
+
+const MainParagraph = styled.p`
+  margin-right: 30px;
+  margin-top: 10px;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+`;
+
+const LogoImage = styled(motion.img)`
+  width: 360px;
+
+  @media (max-width: 768px) {
+    display: none;
+  }
 `;
 
 const Section = styled.section`
@@ -135,8 +176,8 @@ const Home = () => {
 
                 {/* 최상단 타이틀 */}
                 <MainTitle>
-                    <motion.img src={homeLogo}
-                        style={{ width: '360px' }}
+                    <LogoImage 
+                        src={homeLogo}
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
@@ -145,12 +186,13 @@ const Home = () => {
                             ease: [0.3, 0.71, 0.2, 1]
                         }}
                     />
-                    <div>
-                        <h1 style={{ fontSize: '36px' }}>굿밤, Good Bam</h1>
-                        <p style={{ marginRight: '30px', marginTop: '10px' }}>
+                    <TextContainer>
+                        <MainText>굿밤, Good Bam</MainText>
+                        <MainParagraph>
                             굿밤 서비스는 사용자의 생활패턴을 기반으로 나의 수면상태를<br /> 분석하여 맞춤형 솔루션을 제공하는 서비스입니다.
-                            <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.</p>
-                    </div>
+                            <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.
+                        </MainParagraph>
+                    </TextContainer>
                 </MainTitle>
 
                 {sections.map((section) => (
