@@ -49,15 +49,18 @@ const List = () => {
             <div className='list-title'>
                 Sleep List
             </div>
+            <div className='list-menu'>
             {error ? (
                 <div className='error-message'>{error}</div>
             ) : (
+                
                 // 데이터가 null이거나 빈 배열인 경우 메시지를 표시합니다.
                 sleepList === null ? (
                     <div className='no-data-message'>수면 데이터가 없습니다.</div>
                 ) : sleepList.length === 0 ? (
                     <div className='no-data-message'>수면 데이터가 없습니다.</div>
                 ) : (
+                    
                     sleepList.map((item) => (
                         <div key={item.id} onClick={() => handleItemClick(item)}>
                             <ListMap item={item} />
@@ -65,6 +68,7 @@ const List = () => {
                     ))
                 )
             )}
+            </div>
         </div>
     );
 };
