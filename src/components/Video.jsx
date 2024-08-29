@@ -4,8 +4,6 @@ import data from '../json/videoList.json';
 import '../style/video.css'
 
 const Video = () => {
-
-    // useAuth();
     
     const [currentVideos, setCurrentVideos] = useState([]);
     const [page, setPage] = useState(1);
@@ -29,6 +27,7 @@ const Video = () => {
         const newVideos = indices.slice((page - 1) * itemsPerPage, page * itemsPerPage)
             .map(index => data.video[index]);
         setCurrentVideos(prevVideos => [...prevVideos, ...newVideos]);
+    
     };
 
     // 스크롤 이벤트 처리

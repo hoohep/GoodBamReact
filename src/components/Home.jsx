@@ -90,7 +90,6 @@ const Section = styled.section`
 
 const Title = styled.h2`
   font-size: 2em;
-  margin-top: 20px;
   color: #333333;
 `;
 
@@ -126,7 +125,7 @@ const SlideContent = styled.div`
   img {
     display: block;
     margin: 10px auto;
-    
+    width:100%;
   }
 `;
 
