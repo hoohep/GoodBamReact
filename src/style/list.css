@@ -10,6 +10,12 @@
     margin-bottom: 1em;
     font-size: 32px;
     font-weight: bold;
+    text-align: center;
+}
+
+.list-menu{
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .list-content{
@@ -23,7 +29,7 @@
     border-radius: 8px;
     box-shadow: 0px 0px 10px rgb(173, 173, 173);
     background-color: #ffffff;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin-top: 1.4em;
     color: black;
 }
@@ -32,17 +38,20 @@
     transform: scale(1.05);
     border-color: #6356f8;
     box-shadow: 0px 0px 10px #6356f8;
-    /* background-color: pink; */
+    background-color: #f9f9f9;
 }
 
 .list-link{
     text-decoration: none;
 }
 
-/* 480px보다 작은 화면일 때 */
-@media screen and (max-width: 480px) {
+
+/* 768px보다 작은 화면일 때 */
+@media screen and (max-width: 768px) {
     .list-content{
+        padding: 0 18px;
         width: 100%;
-        
+
     }
+
   }

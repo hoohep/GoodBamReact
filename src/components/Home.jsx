@@ -56,6 +56,7 @@ const MainText = styled.h1`
 const MainParagraph = styled.p`
   margin-right: 30px;
   margin-top: 10px;
+  color: #dddddd;
 
   @media (max-width: 768px) {
     margin-right: 0;
@@ -66,10 +67,10 @@ const MainParagraph = styled.p`
 `;
 
 const LogoImage = styled(motion.img)`
-  width: 360px;
+  width: 300px;
 
   @media (max-width: 768px) {
-    display: none;
+    width : 200px;
   }
 `;
 
@@ -214,10 +215,10 @@ const Home = () => {
                                 <CustomDots>
                                     {/* 슬라이드 */}
                                     <Slider {...sliderSettings}>
-                                        <SlideContent>생활패턴 기반 수면분석
+                                        <SlideContent>나의 생활패턴 기반 수면분석
                                             <img src={modal} />
                                         </SlideContent>
-                                        <SlideContent>분석 결과와 솔루션 제공
+                                        <SlideContent>수면분석 결과와 솔루션 제공
                                             <img src={service2} />
                                         </SlideContent>
                                         <SlideContent>수면 질 향상을 위한 영상 테라피
@@ -258,17 +259,6 @@ const Home = () => {
                         )
                 ))}
 
-                <motion.div
-                    initial={{ opacity: 0, y: 50 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
-                    transition={{
-                        ease: 'easeInOut',
-                        duration: 2,
-                        y: { duration: 1 },
-                    }}>
-                    새로운 공간
-                </motion.div>
             </ContentContainer>
         </PageContainer>
     );

@@ -66,10 +66,10 @@ const Login = () => {
                 <div className='login-content'>
                     <p>아이디</p>
                     <input
-                    type="email"
+                    type="text"
                     onChange={(e) => setId(e.target.value)} 
                     className='login-input'
-                    placeholder='abcde@smhrd.com'
+                    placeholder='smhrdtest12'
                     /> <br />
                 </div>
 

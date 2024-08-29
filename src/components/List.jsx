@@ -32,23 +32,26 @@ const List = () => {
             })
     }, [])
 
-   // 특정 항목 클릭 시 Result 페이지로 이동하며 데이터 전달
-   const handleItemClick = (item) => {
-    navigate('/result', { state: { sleepData: item } });
-};
+    // 특정 항목 클릭 시 Result 페이지로 이동하며 데이터 전달
+    const handleItemClick = (item) => {
+        navigate('/result', { state: { sleepData: item } });
+    };
 
-return (
-    <div className='list-container'>
-        <div className='list-title'>
-            Sleep List
-        </div>
-        {sleepList.map((item) => (
-            <div key={item.id} onClick={() => handleItemClick(item)}>
-                <ListMap item={item} />
+    return (
+        <div className='list-container'>
+            <div className='list-title'>
+                Sleep List
             </div>
-        ))}
-    </div>
-);
+            <div className='list-menu'>
+                {sleepList.map((item) => (
+                    <div key={item.id} onClick={() => handleItemClick(item)}>
+                        <ListMap item={item} />
+                    </div>
+                ))}
+
+            </div>
+        </div>
+    );
 };
 
 export default List;
