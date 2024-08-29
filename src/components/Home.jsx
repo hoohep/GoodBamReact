@@ -84,6 +84,7 @@ const SlideContent = styled.div`
   img {
     display: block;
     margin: 10px auto;
+    
   }
 `;
 
