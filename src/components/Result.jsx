@@ -1,7 +1,7 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../style/result.css'
-
+import { FaChevronLeft } from "react-icons/fa";
 
 function Result({ sleepData: propsSleepData }) {
     const location = useLocation();
@@ -31,7 +31,7 @@ function Result({ sleepData: propsSleepData }) {
                     ChatBot 답변: {sleepData.rchat}
                 </div>
             </div>
-            <button onClick={handleBack} className='result-btn'>Back</button>
+            <button onClick={handleBack} className='result-btn'><FaChevronLeft style={{marginRight:'10px'}}/>Back</button>
         </div>
     );
 }
