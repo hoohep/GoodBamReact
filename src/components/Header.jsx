@@ -119,6 +119,12 @@ const Header = () => {
 
         {/* 토글 메뉴 리스트 */}
         <NavMenu isToggleOpen={isToggleOpen}>
+
+          <li>
+            <Link to={'/'} className='nav-menu-list'>
+              HOME
+            </Link>
+          </li>
           <li>
             <Link to={'/sleep'} className='nav-menu-list'>
               수면분석
