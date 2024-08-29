@@ -13,8 +13,8 @@
 /* 리스트 제목 스타일 */
 .list-title {
     margin: 1em 0 2em 0;
-    font-size: 2rem; /* 상대적인 단위 사용 */
-    font-weight: bold;
+    font-size: 32px;
+    font-family: 'BMJUA';
     text-align: center;
 }
 

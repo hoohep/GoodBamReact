@@ -11,17 +11,15 @@
 
 /* 비디오 제목 스타일 */
 .video-title {
-    margin-top: 1em;
-    margin-bottom: 2em;
+    margin: 1em 0 2em 0;
     font-size: 32px;
-    font-weight: bold;
     color: #fff;
     text-align: center; /* 제목 중앙 정렬 */
+    font-family: 'BMJUA';
 }
 
 .video-title p {
     font-size: 18px;
-    font-weight: lighter;
 }
 
 /* 비디오 내용 스타일 */

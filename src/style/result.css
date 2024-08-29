@@ -8,11 +8,11 @@
 }
 
 .result-title{
-    font-size: 28px;
-    font-weight: bold;
+    font-size: 32px;
     text-align: center;
-    margin-bottom: 1em;
+    margin: 1em 0 2em 0;
     color: #fff;
+    font-family: 'BMJUA';
 }
 
 .result-box{
