@@ -1,12 +1,11 @@
 import React, { useEffect } from 'react'
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 
 
 const Redirection = () => {
 
-  // const code = window.location.search; // 쿼리스트링(?= 어쩌고)
   const nav = useNavigate();
 
   useEffect(() => {
@@ -26,12 +25,6 @@ const Redirection = () => {
     })
       .then((res) => {
         console.log('토큰 :', res.data) // 서버로부터 엑세스 토큰 확인
-
-        // const token = JSON.stringify(res.data, null, 2); // 서버로부터 엑세스 토큰 확인, JSON 형식 변환 후  (데이터, 리플레이서, 2칸 들여쓰기)
-        // console.log('토큰 : '+token); 
-
-        // state에 저장해 보내는방식
-        // navigate('/loginSuccess', { state: { token : res.data} });
 
         // 액세스 토큰을 localStorage에 저장
         localStorage.setItem('token', res.data);

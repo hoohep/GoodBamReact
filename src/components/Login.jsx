@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link, useNavigate } from 'react-router-dom'
 import '../style/login.css'
 import Swal from 'sweetalert2';
-
+import { FaComment } from "react-icons/fa";
 
 
 const Login = () => {
@@ -66,10 +66,10 @@ const Login = () => {
                 <div className='login-content'>
                     <p>아이디</p>
                     <input
-                    type="email"
+                    type="text"
                     onChange={(e) => setId(e.target.value)} 
                     className='login-input'
-                    placeholder='abcde@smhrd.com'
+                    placeholder='smhrdtest12'
                     /> <br />
                 </div>
 
@@ -85,7 +85,7 @@ const Login = () => {
 
                 <div>
                     <button onClick={tryLoginPost} className='login-btn'>로그인</button> <br />
-                    <button onClick={handleLogin} className='loginKakao-btn'>카카오 로그인</button><br />
+                    <button onClick={handleLogin} className='loginKakao-btn'><FaComment style={{marginRight: '10px'}}/>카카오 로그인</button><br />
                     <Link to='/join' className='join-text'>회원가입</Link>
                 </div>  
 

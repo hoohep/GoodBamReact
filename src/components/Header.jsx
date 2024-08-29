@@ -4,23 +4,18 @@ import { FaBars } from 'react-icons/fa'
 import styled from 'styled-components'
 import logo from '../assets/logo.png'
 import Swal from 'sweetalert2';
-import axios from 'axios'
 
 
 const HeaderStyle = styled.header`
   background-color: #252730;
   width: 100%;
-  padding: 10px 12px 8px 12px;
+  padding: 12px 18px 8px 18px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   
   .nav-logo {
     padding: 0 12px;
-  }
-
-  .nav-logo img {
-    top: 10px;
   }
 
   .menuToggleBtn {
@@ -82,10 +77,6 @@ const Header = () => {
     setIsToggleOpen(!isToggleOpen) // True
   }
 
-  // 카카오 회원정보
-  const [profile, setProfile] = useState(null);
-  const [error, setError] = useState(null);
-
   // 로그인 유무
   const [isLogin, setIsLogin] = useState(false);
 
@@ -128,6 +119,12 @@ const Header = () => {
 
         {/* 토글 메뉴 리스트 */}
         <NavMenu isToggleOpen={isToggleOpen}>
+
+          <li>
+            <Link to={'/'} className='nav-menu-list'>
+              HOME
+            </Link>
+          </li>
           <li>
             <Link to={'/sleep'} className='nav-menu-list'>
               수면분석

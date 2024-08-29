@@ -1,5 +1,6 @@
 import React from 'react'
 import { FaExclamationCircle } from "react-icons/fa";
+import '../style/list.css'
 
 const ListMap = ({item}) => {
     

@@ -4,6 +4,10 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import homeLogo from '../assets/title.png'
+import homeImg1 from '../assets/home_img01.png'
+import modal from '../assets/modal.png'
+import service1 from '../assets/service_img01.png'
+import service2 from '../assets/service_img02.png'
 import { motion } from 'framer-motion';
 
 const PageContainer = styled.div`
@@ -23,24 +27,72 @@ const MainTitle = styled.div`
   height: 500px;
   display: flex;
   justify-content: center;
-  align-items : center;
-  text-align : left;
+  align-items: center;
+  text-align: left;
+
+  @media (max-width: 768px) {
+    height: auto;
+    flex-direction: column;
+    text-align: center;
+  }
+`;
+
+const TextContainer = styled.div`
+  @media (max-width: 768px) {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 40px; /* 아래 공간 추가 */
+  }
+`;
+
+const MainText = styled.h1`
+  font-size: 40px;
+  font-family: 'BMJUA';
+  font-weight: 500;
+
+  @media (max-width: 768px) {
+    font-size: 30px;
+  }
+`;
+
+const MainParagraph = styled.p`
+  margin-right: 30px;
+  margin-top: 10px;
+  color: #dddddd;
+
+  @media (max-width: 768px) {
+    margin-right: 0;
+    margin-top: 15px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+`;
+
+const LogoImage = styled(motion.img)`
+  width: 300px;
+
+  @media (max-width: 768px) {
+    width : 200px;
+  }
 `;
 
 const Section = styled.section`
-  margin: 0 auto 30px auto;
+  margin: 0 auto 40px auto;
   padding: 10px;
   border: none;
   border-radius: 8px;
   background-color: #f9f9f9;
   max-width: 800px;
   width: 100%;
+
+  img {
+    margin-top: 20px;
+  }
 `;
 
 const Title = styled.h2`
   font-size: 2em;
-  margin-bottom: 30px;
-  color: #000;
+  color: #333333;
 `;
 
 const Paragraph = styled.p`
@@ -49,18 +101,39 @@ const Paragraph = styled.p`
   color: #000;
 `;
 
+const CustomDots = styled.div`
+  .slick-dots {
+    bottom: 2px; /* 위치 조정 */
+  }
+
+  .slick-dots li button:before {
+    color: #000; /* 점 색상 */
+  }
+
+  .slick-dots li.slick-active button:before {
+    color: #FF5A9F; /* 활성화된 점 색상 */
+  }
+`;
+
 const SlideContent = styled.div`
   padding: 20px;
-  background-color: #f1f1f1;
   border-radius: 8px;
-  color: #000; /* 글씨 색상을 검정색으로 설정 */
   text-align: center;
+  height: 260px;
+  color: #6356F8;
+  font-size: 22px;
+  font-weight: bold;
+
+  img {
+    display: block;
+    margin: 10px auto;
+  }
 `;
 
 const Home = () => {
     const [sections, setSections] = useState([
-        { id: 1, title: '굿밤, Good Bam', content: '걸음수, 소모칼로리 등의 생활패턴을 기반으로 나의 수면상태를 분석해보자!' },
-        { id: 2, title: '서비스 장점', content: '서비스 장점 소개 내용이 여기에 들어갑니다. 서비스의 특징, 혜택, 사용자 리뷰 등을 포함할 수 있습니다.' },
+        { id: 1, title: '하루의 마무리를 함께 해요.', content: '잠 못 드는 밤, 굿밤과 함께라면', img: `${homeImg1}` },
+        { id: 2, title: 'Our Service', content: '서비스 장점 소개 내용이 여기에 들어갑니다. 서비스의 특징, 혜택, 사용자 리뷰 등을 포함할 수 있습니다.' },
         { id: 3, title: '추가 탭 1', content: '추가 탭 1의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
         { id: 4, title: '추가 탭 2', content: '추가 탭 2의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
         { id: 5, title: '추가 탭 3', content: '추가 탭 3의 내용 예문입니다. 관련된 정보나 설명이 여기에 들어갑니다.' },
@@ -91,7 +164,7 @@ const Home = () => {
     const sliderSettings = {
         dots: true,
         infinite: true,
-        speed: 500,
+        speed: 1000,
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
@@ -102,9 +175,11 @@ const Home = () => {
     return (
         <PageContainer>
             <ContentContainer>
+
+                {/* 최상단 타이틀 */}
                 <MainTitle>
-                    <motion.img src={homeLogo}
-                        style={{ width: '360px' }}
+                    <LogoImage 
+                        src={homeLogo}
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{
@@ -113,51 +188,77 @@ const Home = () => {
                             ease: [0.3, 0.71, 0.2, 1]
                         }}
                     />
-                    <div>
-                        <h1 style={{ fontSize: '36px' }}>굿밤, Good Bam</h1>
-                        <p>
+                    <TextContainer>
+                        <MainText>굿밤, Good Bam</MainText>
+                        <MainParagraph>
                             굿밤 서비스는 사용자의 생활패턴을 기반으로 나의 수면상태를<br /> 분석하여 맞춤형 솔루션을 제공하는 서비스입니다.
-                            <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.</p>
-                    </div>
+                            <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.
+                        </MainParagraph>
+                    </TextContainer>
                 </MainTitle>
 
                 {sections.map((section) => (
-                    section.title === '서비스 장점' ? (
+                    // 슬라이드하는 모달
+                    section.title === 'Our Service' ? (
+                        // 모션 애니메이션 속성
                         <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
+                            initial={{ opacity: 0, y: 50 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
                             transition={{
                                 ease: 'easeInOut',
                                 duration: 2,
-                                x: { duration: 1 },
+                                y: { duration: 1 },
                             }}>
                             <Section key={section.id}>
                                 <Title>{section.title}</Title>
-                                <Slider {...sliderSettings}>
-                                    <SlideContent>서비스 장점 1: 뛰어난 성능</SlideContent>
-                                    <SlideContent>서비스 장점 2: 사용자 친화적</SlideContent>
-                                    <SlideContent>서비스 장점 3: 높은 안정성</SlideContent>
-                                </Slider>
-                            </Section>
-                        </motion.div>
-                    ) : (
-                        <motion.div
-                            initial={{ opacity: 0, x: 50 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: false }}
-                            transition={{
-                                ease: 'easeInOut',
-                                duration: 2,
-                                x: { duration: 1 },
-                            }}>
-                            <Section key={section.id}>
-                                <Title>{section.title}</Title>
-                                <Paragraph>{section.content}</Paragraph>
+                                <CustomDots>
+                                    {/* 슬라이드 */}
+                                    <Slider {...sliderSettings}>
+                                        <SlideContent>나의 생활패턴 기반 수면분석
+                                            <img src={modal} />
+                                        </SlideContent>
+                                        <SlideContent>수면분석 결과와 솔루션 제공
+                                            <img src={service2} />
+                                        </SlideContent>
+                                        <SlideContent>수면 질 향상을 위한 영상 테라피
+                                            <img src={service1} />
+                                        </SlideContent>
+                                    </Slider>
+                                </CustomDots>
                             </Section>
                         </motion.div>
                     )
+                        :
+                        (
+                            // 그 외 모든 모달
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false }}
+                                transition={{
+                                    ease: 'easeInOut',
+                                    duration: 2,
+                                    y: { duration: 1 },
+                                }}>
+                                <Section key={section.id}>
+                                    <Title>{section.title}</Title>
+                                    <Paragraph>{section.content}</Paragraph>
+
+                                    <motion.img src={section.img} style={{ height: '400px' }}
+                                        initial={{ opacity: 0, y: 50 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: false }}
+                                        transition={{
+                                            ease: 'easeInOut',
+                                            duration: 2,
+                                            y: { duration: 1 },
+                                        }} />
+                                </Section>
+                            </motion.div>
+                        )
                 ))}
+
             </ContentContainer>
         </PageContainer>
     );
