@@ -2,6 +2,7 @@ import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import '../style/result.css'
 import { FaChevronLeft } from "react-icons/fa";
+import img1 from '../assets/imogi1.png';
 
 function Result({ sleepData: propsSleepData }) {
     const location = useLocation();
@@ -16,7 +17,12 @@ function Result({ sleepData: propsSleepData }) {
     }
 
     if (!sleepData) {
-        return <div className='result-none'>수면 데이터가 없습니다.</div>;
+        return (
+                <div className='result-none'>
+                    <img src={img1} />
+                    수면 데이터가 없습니다.
+                </div>
+            );
     }
 
     return (

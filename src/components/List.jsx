@@ -4,12 +4,16 @@ import '../style/list.css';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import ListMap from './ListMap';
+import img1 from '../assets/imogi1.png';
 
 const List = () => {
     useAuth();   // 유효성 검사
+    
+    const nav = useNavigate(); // 페이지 이동을 위한 navigate 훅
+
     const [sleepList, setSleepList] = useState(null); // 수면 데이터를 저장하는 상태, 초기값을 null로 설정
     const [error, setError] = useState(null); // 오류를 저장하는 상태
-    const navigate = useNavigate(); // 페이지 이동을 위한 navigate 훅
+
 
     // 서버에서 데이터 가져오기
     useEffect(() => {
@@ -41,7 +45,7 @@ const List = () => {
 
     // 특정 항목 클릭 시 Result 페이지로 이동하며 데이터 전달
     const handleItemClick = (item) => {
-        navigate('/result', { state: { sleepData: item } });
+        nav('/result', { state: { sleepData: item } });
     };
 
     return (
@@ -50,15 +54,24 @@ const List = () => {
                 Sleep List
             </div>
             <div className='list-menu'>
-            {error ? (
+            {error ? 
+            (
                 <div className='error-message'>{error}</div>
-            ) : (
-                
+            ) 
+            : 
+            (
                 // 데이터가 null이거나 빈 배열인 경우 메시지를 표시합니다.
                 sleepList === null ? (
-                    <div className='no-data-message'>수면 데이터가 없습니다.</div>
+                    <div className='no-data-message'>
+                        <img src={img1} />
+                        기록된 수면 데이터가 없습니다.
+                    </div>
                 ) : sleepList.length === 0 ? (
-                    <div className='no-data-message'>수면 데이터가 없습니다.</div>
+                    
+                    <div className='no-data-message'>
+                        <img src={img1} />
+                        기록된 수면 데이터가 없습니다.
+                    </div>
                 ) : (
                     
                     sleepList.map((item) => (
