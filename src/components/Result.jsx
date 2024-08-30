@@ -6,8 +6,7 @@ import { motion } from 'framer-motion';
 import img1 from '../assets/imogi1.png';
 import img2 from '../assets/imogi2.png';
 import img3 from '../assets/imogi3.png';
-// import img4 from '../assets/imogi4.png';
-import img4 from '../assets/imogi5.png';
+import img4 from '../assets/imogi4.png';
 
 function Result({ sleepData: propsSleepData }) {
     const location = useLocation();
@@ -49,33 +48,36 @@ function Result({ sleepData: propsSleepData }) {
                 <div className='result-box'>
                     <div className='result-content'>
 
-                        <p>{sleepData.email}님의 수면상태는 <h3>{sleepData.prediction}</h3></p>
+                        <p>예측된 {sleepData.email}님의 수면상태는 <h3>{sleepData.prediction}</h3></p>
                         <img src={sleepData.prediction === '수면부족' ? img2 : img3} />
 
-                        <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.</p>
-
-                        <p>좋은 수면을 위해 {sleepData.impname}을 <br />
-                            {/* <span className='text-deco'>{sleepData.impvalue}</span> */}
-                            {sleepData.impname === '체지방' ?
-                                <span className='text-deco'>{sleepData.impvalue}%</span>
-                                :
-                                sleepData.impname === 'time' ?
-                                    <span className='text-deco'>{sleepData.impvalue}분</span>
+                        <p></p>
+                        {sleepData.prediction === '수면부족' ?
+                            <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.<br/>
+                            좋은 수면을 위해 {sleepData.impname}을 <br />
+                                {sleepData.impname === '체지방' ?
+                                    <span className='text-deco'>{sleepData.impvalue}%</span>
                                     :
-                                    sleepData.impname === 'distance' ?
-                                        <span className='text-deco'>{sleepData.impvalue}m</span>
+                                    sleepData.impname === 'time' ?
+                                        <span className='text-deco'>{sleepData.impvalue}분</span>
                                         :
-                                        sleepData.impname === 'calories' ?
-                                            <span className='text-deco'>{sleepData.impvalue}kcal</span>
+                                        sleepData.impname === 'distance' ?
+                                            <span className='text-deco'>{sleepData.impvalue}m</span>
                                             :
-                                            sleepData.impname === '체중' ?
-                                                <span className='text-deco'>{sleepData.impvalue}kg</span>
+                                            sleepData.impname === 'calories' ?
+                                                <span className='text-deco'>{sleepData.impvalue}kcal</span>
                                                 :
-                                                //steps의 경우
-                                                <span className='text-deco'>{sleepData.impvalue}걸음</span>
-                            } 조정하는 걸 권장 드립니다.</p>
-                        <p>분석 날짜 : {sleepData.rdate}</p>
+                                                sleepData.impname === '체중' ?
+                                                    <span className='text-deco'>{sleepData.impvalue}kg</span>
+                                                    :
+                                                    //steps의 경우
+                                                    <span className='text-deco'>{sleepData.impvalue}걸음</span>
+                                } 조정하는 걸 권장 드립니다.</p>
+                            :
+                            <p>편안한 밤이 될 거예요!</p>
 
+                        }
+                        <p>분석 날짜 : {sleepData.rdate}</p>
 
                     </div>
                 </div>
