@@ -34,7 +34,7 @@
     align-items: center;
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
 }
 
 .result-content img{

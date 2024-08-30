@@ -49,11 +49,33 @@ function Result({ sleepData: propsSleepData }) {
                 <div className='result-box'>
                     <div className='result-content'>
 
-                        <h3>{sleepData.prediction} 입니다.</h3>
+                        <p>{sleepData.email}님의 수면상태는 <h3>{sleepData.prediction}</h3></p>
                         <img src={sleepData.prediction === '수면부족' ? img2 : img3} />
+
                         <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.</p>
-                        <p>{sleepData.email}님이 올려야 할 수면 효율은 <span className='text-deco'>{sleepData.impvalue}</span> 입니다.</p>
+
+                        <p>좋은 수면을 위해 {sleepData.impname}을 <br />
+                            {/* <span className='text-deco'>{sleepData.impvalue}</span> */}
+                            {sleepData.impname === '체지방' ?
+                                <span className='text-deco'>{sleepData.impvalue}%</span>
+                                :
+                                sleepData.impname === 'time' ?
+                                    <span className='text-deco'>{sleepData.impvalue}분</span>
+                                    :
+                                    sleepData.impname === 'distance' ?
+                                        <span className='text-deco'>{sleepData.impvalue}m</span>
+                                        :
+                                        sleepData.impname === 'calories' ?
+                                            <span className='text-deco'>{sleepData.impvalue}kcal</span>
+                                            :
+                                            sleepData.impname === '체중' ?
+                                                <span className='text-deco'>{sleepData.impvalue}kg</span>
+                                                :
+                                                //steps의 경우
+                                                <span className='text-deco'>{sleepData.impvalue}걸음</span>
+                            } 조정하는 걸 권장 드립니다.</p>
                         <p>분석 날짜 : {sleepData.rdate}</p>
+
 
                     </div>
                 </div>
