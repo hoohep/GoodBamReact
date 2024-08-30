@@ -178,7 +178,7 @@ const Home = () => {
 
                 {/* 최상단 타이틀 */}
                 <MainTitle>
-                    <LogoImage 
+                    <LogoImage
                         src={homeLogo}
                         initial={{ opacity: 0, scale: 0.5 }}
                         animate={{ opacity: 1, scale: 1 }}
