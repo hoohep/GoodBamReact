@@ -130,6 +130,38 @@ const SlideContent = styled.div`
   }
 `;
 
+const ScrollToTopButton = styled.button`
+  position: fixed;
+  bottom: 40px;
+  right: 54px;
+  background: linear-gradient(135deg, #6e8efb, #a777e3); /* 그라데이션 배경 */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 86px; /* 버튼 크기 */
+  height: 86px; /* 버튼 크기 */
+  display: ${(props) => (props.show ? 'flex' : 'none')}; /* 초기에는 숨김 */
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* 부드러운 그림자 */
+  font-size: 24px;
+  font-weight: bold;
+  text-align: center;
+  align-items: center; /* 버튼 내 텍스트 정렬 */
+  justify-content: center; /* 버튼 내 텍스트 정렬 */
+  line-height: 60px; /* 텍스트 수직 중앙 정렬 */
+  transition: opacity 0.3s, transform 0.3s; /* 애니메이션 효과 */
+  z-index: 1000;
+
+  &:hover {
+    background: linear-gradient(135deg, #a777e3, #6e8efb); /* 호버 시 그라데이션 반전 */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* 호버 시 그림자 강도 증가 */
+  }
+
+  &:focus {
+    outline: none; /* 포커스 아웃라인 제거 */
+  }
+`;
+
 const Home = () => {
     const [sections, setSections] = useState([
         { id: 1, title: '하루의 마무리를 함께 해요.', content: '잠 못 드는 밤, 굿밤과 함께라면', img: `${homeImg1}` },
@@ -143,23 +175,25 @@ const Home = () => {
         // 더 많은 콘텐츠를 로드할 수 있는 기능을 구현할 수 있습니다.
         // 현재는 고정된 데이터만 사용합니다.
     }, []);
-
+    const [showButton, setShowButton] = useState(false);
     useEffect(() => {
-        const handleScroll = () => {
-            if (
-                window.innerHeight + document.documentElement.scrollTop
-                >= document.documentElement.offsetHeight - 5
-            ) {
-                loadMoreContent();
-            }
-        };
+      const handleScroll = () => {
+          if (window.scrollY > 300) {  // 스크롤 위치가 300px을 넘으면 버튼 보이기
+              setShowButton(true);
+          } else {
+              setShowButton(false);
+          }
+      };
 
-        window.addEventListener('scroll', handleScroll);
+      window.addEventListener('scroll', handleScroll);
+      return () => {
+          window.removeEventListener('scroll', handleScroll);
+      };
+  }, []);
 
-        return () => {
-            window.removeEventListener('scroll', handleScroll);
-        };
-    }, [loadMoreContent]);
+  const scrollToTop = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
     const sliderSettings = {
         dots: true,
@@ -260,6 +294,10 @@ const Home = () => {
                 ))}
 
             </ContentContainer>
+            {/* 최상단으로 이동 버튼 */}
+            <ScrollToTopButton show={showButton} onClick={scrollToTop}>
+                Top
+            </ScrollToTopButton>
         </PageContainer>
     );
 };
