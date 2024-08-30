@@ -16,17 +16,6 @@ const SleepTitle = styled.div`
     font-family: 'BMJUA';
 `;
 
-const Footer = styled.footer`
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
-    background-color: transparent;
-    color: #fff;
-    text-align: center;
-    padding: 1em 0;
-`;
-
 function Sleep() {
   useAuth();
   const nav = useNavigate();  // useNavigate 훅을 사용하여 리다이렉트 처리
@@ -36,9 +25,6 @@ function Sleep() {
   const [error, setError] = useState(null);  // 에러 상태 관리
 
   useEffect(() => {
-    // 스크롤 방지
-    document.body.style.overflow = 'hidden';
-
     const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰 가져오기
 
     // API 호출을 통해 수면 데이터 가져오기
@@ -64,11 +50,6 @@ function Sleep() {
       .finally(() => {
         setLoading(false); // 로딩 상태 해제
       });
-
-    // 페이지가 언마운트될 때 스크롤을 원래대로 돌리기
-    return () => {
-      document.body.style.overflow = 'auto';
-    };
   }, [nav]);  // 빈 의존성 배열로 컴포넌트가 처음 렌더링될 때만 실행
 
   if (loading) {
@@ -101,9 +82,6 @@ function Sleep() {
           <Result sleepData={sleepData} />  {/* Result 컴포넌트에 sleepData 전달 */}
         </div>
       </div>
-      <Footer>
-      COPYRIGHT © 2024 GOODBAM, ALL RIGHTS RESERVED
-      </Footer>
     </div>
   );
 }
