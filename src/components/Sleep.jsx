@@ -84,6 +84,7 @@ function Sleep() {
   }
 
   if (!sleepData) {   // 수면 데이터가 없을 때 표시할 문구
+    <SleepTitle>수면 분석 결과</SleepTitle>
     Swal.fire({
       title: "분석 실패",
       text: "수면 데이터가 없습니다.",
