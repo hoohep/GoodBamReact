@@ -36,6 +36,7 @@ function Result({ sleepData: propsSleepData }) {
         <div className='result-container'>
             <p className='result-title'>{sleepData.email}님의 수면 결과는...</p>
 
+            {/* 수면 결과 */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -45,20 +46,20 @@ function Result({ sleepData: propsSleepData }) {
                     duration: 1,
                     y: { duration: 0.5 },
                 }}>
-            <div className='result-box'>
-                <div className='result-content'>
+                <div className='result-box'>
+                    <div className='result-content'>
 
-                    {/* <p>{sleepData.email}님의 수면 결과</p> */}
-                    <h3>{sleepData.prediction} 입니다.</h3>
-                    <img src={sleepData.prediction === '수면부족' ? img2 : img3} />
-                    <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.</p>
-                    <p>{sleepData.email}님이 올려야 할 수면 효율은 <span className='text-deco'>{sleepData.impvalue}</span> 입니다.</p>
-                    <p>분석 날짜 : {sleepData.rdate}</p>
-                
+                        <h3>{sleepData.prediction} 입니다.</h3>
+                        <img src={sleepData.prediction === '수면부족' ? img2 : img3} />
+                        <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.</p>
+                        <p>{sleepData.email}님이 올려야 할 수면 효율은 <span className='text-deco'>{sleepData.impvalue}</span> 입니다.</p>
+                        <p>분석 날짜 : {sleepData.rdate}</p>
+
+                    </div>
                 </div>
-            </div>
             </motion.div>
 
+            {/* 챗봇 답변 */}
             <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -69,12 +70,19 @@ function Result({ sleepData: propsSleepData }) {
                     y: { duration: 1 },
                 }}>
 
-            <div className='result-box'>
-                <div className='result-content'>
-                    <img src={img4} />
-                    {sleepData.rchat}
+                <div className='result-box'>
+                    <div className='result-content'>
+                        <img src={img4} />
+                        {sleepData.prediction === '수면부족' ?
+                            sleepData.rchat
+                            :
+                            <p>
+                                {sleepData.email}님의 생활 패턴과 체성분 분석 결과에 따르면,
+                                오늘 수면이 정상일 것으로 예상됩니다. 편안한 밤 되세요.
+                            </p>
+                        }
+                    </div>
                 </div>
-            </div>
 
             </motion.div>
 
@@ -82,7 +90,7 @@ function Result({ sleepData: propsSleepData }) {
                 <FaChevronLeft style={{ marginRight: '10px' }} />
                 Back
             </button>
-            
+
         </div>
 
     );
