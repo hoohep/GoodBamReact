@@ -51,7 +51,6 @@ function Result({ sleepData: propsSleepData }) {
                         <p>예측된 {sleepData.email}님의 수면상태는 <h3>{sleepData.prediction}</h3></p>
                         <img src={sleepData.prediction === '수면부족' ? img2 : img3} />
 
-                        <p></p>
                         {sleepData.prediction === '수면부족' ?
                             <p>오늘 수면에 영향을 준 요소는 <span className='text-deco'>{sleepData.impname}</span> 입니다.<br/>
                             좋은 수면을 위해 {sleepData.impname}을 <br />
