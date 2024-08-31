@@ -16,7 +16,7 @@ const Redirection = () => {
     formData.append('code', code);
 
     axios({
-      url: "http://localhost:8092/api/member/kakaologin",
+      url: "https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/api/member/kakaologin",
       method: "post",
       //body 에 data 담기
       //1. 데이터 보안

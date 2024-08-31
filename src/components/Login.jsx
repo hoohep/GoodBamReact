@@ -28,7 +28,7 @@ const Login = () => {
         formData.append('password', pw);
 
         axios({
-            url: "http://localhost:8092/api/member/login",
+            url: "https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/api/member/login",
             method: "post",
             data: formData
         })

@@ -38,7 +38,7 @@ const List = () => {
                 const token = localStorage.getItem('token');
 
                 // API 호출을 통해 수면 데이터 가져오기
-                const response = await axios.get("http://localhost:8092/resultList", {
+                const response = await axios.get("https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/resultList", {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${token}`

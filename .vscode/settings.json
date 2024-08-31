@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/cd6f98cd-b94e-481a-a4a9-0d9e141a6000/resourceGroups/goodbam-spring/providers/Microsoft.Web/sites/goodbamReact",
+    "appService.deploySubpath": "build"
+}

@@ -28,7 +28,7 @@ function Sleep() {
     const token = localStorage.getItem('token'); // 로컬 스토리지에서 토큰 가져오기
 
     // API 호출을 통해 수면 데이터 가져오기
-    axios.get("http://localhost:8092/result", {
+    axios.get("https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/result", {
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${token}`
