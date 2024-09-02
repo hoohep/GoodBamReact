@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import useAuth from '../Hooks/Auth';
 import Swal from 'sweetalert2';
 import '../style/sleep.css';
+import {Oval} from "react-loader-spinner";
 
 // 전체 페이지 스타일을 적용하기 위해 컨테이너 컴포넌트 추가
 const SleepTitle = styled.div`
@@ -53,7 +54,13 @@ function Sleep() {
   }, [nav]);  // 빈 의존성 배열로 컴포넌트가 처음 렌더링될 때만 실행
 
   if (loading) {
-    return <div>Loading...</div>;  // 로딩 중 표시할 문구 또는 스피너
+    return <div>Loading
+      <Oval 
+        color="#ff0000" 
+        height={100} 
+        width={100}
+        />
+    </div>;  // 로딩 중 표시할 문구 또는 스피너
   }
 
   if (error) {
