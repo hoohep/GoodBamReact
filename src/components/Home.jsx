@@ -238,11 +238,15 @@ const Home = () => {
                         <MainText>굿밤, Good Bam</MainText>
                         <MainParagraph>
                             {/* 모바일에서만 줄 바꿈 조정 */}
-                            굿밤 서비스는 사용자의 생활패턴을 기반으로 나의 수면상태를
+                            굿밤 서비스는 사용자의 생활패턴을 기반으로
                             <br className="mobile-only" />
-                            분석하여 맞춤형 솔루션을 제공하는 서비스입니다.
+                            나의 수면상태를 분석하여 맞춤형 솔루션을
                             <br className="mobile-only" />
-                            오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.
+                            제공하는 서비스입니다.
+                            <br className="mobile-only" />
+                            오직 나만을 위한, 나에게 맞는
+                            <br className="mobile-only" />
+                            수면 방향을 찾아보아요.
                         </MainParagraph>
                     </TextContainer>
                 </MainTitle>
