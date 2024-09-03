@@ -19,7 +19,7 @@ const Join = () => {
         formData.append('name', name);
 
         axios({
-            url: "http://localhost:8092/api/member/join",
+            url: "https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/api/member/join",
             method: "post",
             data: formData
         })
