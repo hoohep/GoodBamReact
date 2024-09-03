@@ -286,7 +286,7 @@ const Home = () => {
                     )
                         :
                         (
-                            // 그 외 모든 모달
+                            // 그 외 모든 모달 및 키
                             <motion.div
                                 key={section.id} // 키를 여기에 추가해야 합니다
                                 initial={{ opacity: 0, y: 50 }}
@@ -296,7 +296,7 @@ const Home = () => {
                                     ease: 'easeInOut',
                                     duration: 2,
                                     y: { duration: 1 },
-                                }}>
+                                }}> 
                                 <Section>
                                     <Title>{section.title}</Title>
                                     <Paragraph>{section.content}</Paragraph>
