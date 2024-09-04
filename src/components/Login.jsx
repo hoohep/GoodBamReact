@@ -14,9 +14,11 @@ const Login = () => {
 
     // 카카오 API 로그인
     const rest_api_key = '0196bd96b83188ce5806bb730eff40d5';
+
     // const redirect_url = 'http://localhost:3000/kakao'
     const redirect_url = 'https://springreact-bqaya4buech6gdcm.koreacentral-01.azurewebsites.net/kakao'
     const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${rest_api_key}&redirect_uri=${redirect_url}&response_type=code`
+    
     const handleLogin = () => {
         window.location.href = kakaoURL
     }

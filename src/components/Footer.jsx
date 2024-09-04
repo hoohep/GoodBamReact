@@ -1,25 +1,32 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useLocation } from 'react-router-dom'; // useLocation 훅 import
+import { useLocation } from 'react-router-dom';
 
 const FooterStyle = styled.footer`
     .footer-container {
-        display: ${props => props.hide ? 'none' : 'flex'}; /* hide prop이 true일 경우 display: none */
+        display: ${props => props.hide ? 'none' : 'flex'};
         justify-content: center;
         align-items: center;
         padding: 0.5rem;
         color: #e9e9e9;
-        height: ${props => props.height || '50px'}; /* height를 props로 설정, 기본값은 50px */
+        height: ${props => props.height || '50px'};
         width: 100%;
         font-size: 14px;
-        background-color: transparent; /* 배경색을 투명하게 설정 */
+        background-color: transparent;
+
+        @media (max-width: 768px) { /* 화면 너비가 768px 이하일 때 적용 */
+            font-size: 13px; /* 폰트 사이즈를 13px로 줄임 */
+        }
+
+        @media (max-width: 480px) { /* 화면 너비가 480px 이하일 때 적용 */
+            font-size: 11px; /* 폰트 사이즈를 11px로 줄임 */
+        }
     }
 `;
 
 const Footer = ({ height }) => {
-  const location = useLocation(); // 현재 경로를 가져오기 위한 useLocation 훅 사용
+  const location = useLocation();
 
-  // 현재 경로가 '/list'일 경우 Footer를 숨김
   const isListPage = location.pathname === '/list';
 
   return (

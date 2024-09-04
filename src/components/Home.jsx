@@ -3,11 +3,11 @@ import styled from 'styled-components';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import homeLogo from '../assets/title.png'
-import homeImg1 from '../assets/home_img01.png'
-import modal from '../assets/modal.png'
-import service1 from '../assets/service_img01.png'
-import service2 from '../assets/service_img02.png'
+import homeLogo from '../assets/title.png';
+import homeImg1 from '../assets/home_img01.png';
+import modal from '../assets/modal.png';
+import service1 from '../assets/service_img01.png';
+import service2 from '../assets/service_img02.png';
 import { motion } from 'framer-motion';
 
 const PageContainer = styled.div`
@@ -59,12 +59,14 @@ const MainParagraph = styled.p`
   margin-right: 30px;
   margin-top: 10px;
   color: #dddddd;
+  text-align: left;
 
   @media (max-width: 768px) {
     margin-right: 0;
     margin-top: 15px;
     font-size: 16px;
     line-height: 1.5;
+    text-align: center; /* 모바일에서 가운데 정렬 */
   }
 `;
 
@@ -91,8 +93,12 @@ const Section = styled.section`
 `;
 
 const Title = styled.h2`
-  font-size: 2em;
+  font-size: 2em; /* 데스크탑 기본 font-size */
   color: #333333;
+
+  @media (max-width: 768px) {
+    font-size: 23px; /* 또는 font-size: inherit;를 사용할 수 있습니다 */
+  }
 `;
 
 const Paragraph = styled.p`
@@ -127,6 +133,12 @@ const SlideContent = styled.div`
   img {
     display: block;
     margin: 10px auto;
+    max-width: 100%; /* 이미지가 부모 요소를 벗어나지 않도록 설정 */
+  }
+
+  @media (max-width: 768px) {
+    font-size: 18px; /* 모바일 환경에서 글씨 크기 줄이기 */
+    /* 다른 스타일 필요에 따라 추가 조정 */
   }
 `;
 
@@ -225,8 +237,16 @@ const Home = () => {
                     <TextContainer>
                         <MainText>굿밤, Good Bam</MainText>
                         <MainParagraph>
-                            굿밤 서비스는 사용자의 생활패턴을 기반으로 나의 수면상태를<br /> 분석하여 맞춤형 솔루션을 제공하는 서비스입니다.
-                            <br />오직 나만을 위한, 나에게 맞는 수면 방향을 찾아보아요.
+                            {/* 모바일에서만 줄 바꿈 조정 */}
+                            굿밤 서비스는 사용자의 생활패턴을 기반으로
+                            <br className="mobile-only" />
+                            나의 수면상태를 분석하여 맞춤형 솔루션을
+                            <br className="mobile-only" />
+                            제공하는 서비스입니다.
+                            <br className="mobile-only" />
+                            오직 나만을 위한, 나에게 맞는
+                            <br className="mobile-only" />
+                            수면 방향을 찾아보아요.
                         </MainParagraph>
                     </TextContainer>
                 </MainTitle>
@@ -236,6 +256,7 @@ const Home = () => {
                     section.title === 'Our Service' ? (
                         // 모션 애니메이션 속성
                         <motion.div
+                            key={section.id} // 키를 여기에 추가해야 합니다
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: false }}
@@ -244,7 +265,7 @@ const Home = () => {
                                 duration: 2,
                                 y: { duration: 1 },
                             }}>
-                            <Section key={section.id}>
+                            <Section>
                                 <Title>{section.title}</Title>
                                 <CustomDots>
                                     {/* 슬라이드 */}
@@ -265,8 +286,9 @@ const Home = () => {
                     )
                         :
                         (
-                            // 그 외 모든 모달
+                            // 그 외 모든 모달 및 키
                             <motion.div
+                                key={section.id} // 키를 여기에 추가해야 합니다
                                 initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: false }}
@@ -274,11 +296,10 @@ const Home = () => {
                                     ease: 'easeInOut',
                                     duration: 2,
                                     y: { duration: 1 },
-                                }}>
-                                <Section key={section.id}>
+                                }}> 
+                                <Section>
                                     <Title>{section.title}</Title>
                                     <Paragraph>{section.content}</Paragraph>
-
                                     <motion.img src={section.img} style={{ height: '400px' }}
                                         initial={{ opacity: 0, y: 50 }}
                                         whileInView={{ opacity: 1, y: 0 }}
