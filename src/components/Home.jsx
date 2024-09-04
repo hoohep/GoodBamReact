@@ -217,6 +217,7 @@ const Home = () => {
         autoplaySpeed: 5000,
         arrows: false, // 좌우 버튼을 없앱니다
     };
+    
 
     return (
         <PageContainer>
