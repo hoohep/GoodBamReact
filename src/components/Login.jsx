@@ -69,7 +69,7 @@ const Login = () => {
                     type="text"
                     onChange={(e) => setId(e.target.value)} 
                     className='login-input'
-                    placeholder='smhrdtest12'
+                    placeholder='아이디를 입력하세요'
                     /> <br />
                 </div>
 
