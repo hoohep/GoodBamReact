@@ -25,7 +25,14 @@ const Join = () => {
         })
             .then((res) => {
 
-                if (id.length === 0 || pw.length === 0) {    // id, pw 값이 빈칸일 경우
+                if(res === 'no'){  // 값이 중복일 때
+                    Swal.fire({
+                        title: "회원가입 실패",
+                        text: "중복된 값입니다.",
+                        icon: "error"
+                    });
+                }
+                else if (id.length === 0 || pw.length === 0) {    // id, pw 값이 빈칸일 경우
                     Swal.fire({
                         title: "회원가입 실패",
                         text: "빈칸을 확인해주세요",
