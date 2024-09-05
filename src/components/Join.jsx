@@ -24,13 +24,23 @@ const Join = () => {
             data: formData
         })
             .then((res) => {
-                console.log(res)
-                Swal.fire({
-                    title: "회원가입 성공!",
-                    text: "👏👏",
-                    icon: "success"
-                });
-                nav('/login')
+
+                if (id.length === 0 || pw.length === 0) {    // id, pw 값이 빈칸일 경우
+                    Swal.fire({
+                        title: "회원가입 실패",
+                        text: "빈칸을 확인해주세요",
+                        icon: "error"
+                    });
+                } else {     // input 값이 들어있을 경우
+                    console.log(res)
+                    Swal.fire({
+                        title: "회원가입 성공!",
+                        text: "👏👏",
+                        icon: "success"
+                    });
+                    nav('/login')
+                }
+
             })
     }
 
