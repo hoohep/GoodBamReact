@@ -54,7 +54,7 @@ const Join = () => {
                 <div className='join-content'>
                     <p>아이디</p>
                     <input type='text' onChange={(e) => setId(e.target.value)}
-                        className='join-input' placeholder='smhrdtest12' required></input> <br />
+                        className='join-input' placeholder='아이디를 입력하세요' required></input> <br />
                 </div>
 
                 <div className='join-content'>
