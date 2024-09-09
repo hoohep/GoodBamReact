@@ -12,7 +12,7 @@ const Login = () => {
     const [id, setId] = useState('')
     const [pw, setPw] = useState('')
 
-    // 카카오 API 로그인
+    // 카카오 API 인가코드 요청
     const rest_api_key = process.env.REACT_APP_KAKAO_API_KEY;
 
     // const redirect_url = 'http://localhost:3000/kakao'
