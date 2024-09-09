@@ -25,10 +25,22 @@ const Login = () => {
 
     // 로그인 실행 함수
     function tryLoginPost() {
+
         const formData = new FormData();
         formData.append('email', id);
         formData.append('password', pw);
 
+        //로그인 시 값이 공백일 때
+        if (id.trim() === '' || pw.trim() === '') {
+            Swal.fire({
+                title: "로그인 실패",
+                text: "빈칸을 확인해주세요!",
+                icon: "error"
+            });
+            return;
+        }
+
+        //로그인 시 값이 공백이 아닐 때
         axios({
             url: "https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/api/member/login",
             method: "post",
@@ -36,25 +48,16 @@ const Login = () => {
         })
             .then((res) => {
 
-                if (id.length === 0 || pw.length === 0) {  // id, pw가 빈칸일 시
-                    // console.log('빈칸을 채우시오');
-                    Swal.fire({
-                        title: "로그인 실패",
-                        text: "빈칸을 확인해주세요",
-                        icon: "error"
-                    });
-
-                } else {   //로그인 성공 시
-                    // console.log(res)
-                    // 로컬에 토큰 저장
-                    localStorage.setItem('token', res.data);
-                    Swal.fire({
-                        title: "로그인 성공!",
-                        text: "👏👏",
-                        icon: "success"
-                    });
-                    nav('/')
-                }
+                //로그인 성공
+                // console.log(res)
+                // 로컬에 토큰 저장
+                localStorage.setItem('token', res.data);
+                Swal.fire({
+                    title: "로그인 성공!",
+                    text: "👏👏",
+                    icon: "success"
+                });
+                nav('/')
 
             })
             .catch(error => {
