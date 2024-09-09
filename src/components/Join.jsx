@@ -13,33 +13,40 @@ const Join = () => {
 
     // 회원가입 함수
     function tryJoinPost() {
+
         const formData = new FormData();
         formData.append('email', id);
         formData.append('password', pw);
         formData.append('name', name);
 
+        // 값이 공백일 때
+        if (id.trim() === '' || pw.trim() === '' || name.trim() === '') {
+            Swal.fire({
+                title: "회원가입 실패",
+                text: "빈칸을 확인해주세요!",
+                icon: "error"
+            });
+            return;
+        }
+
+        // 값이 공백이 아닐 때
         axios({
             url: "https://goodbamspring-g7eqehcuaba3ewez.koreacentral-01.azurewebsites.net/api/member/join",
             method: "post",
             data: formData
         })
             .then((res) => {
-
-                if(res === 'no'){  // 값이 중복일 때
+                console.log(res)
+                
+                // 데이터가 중복된 값일 때
+                if (res === 'no') {
                     Swal.fire({
                         title: "회원가입 실패",
                         text: "중복된 값입니다.",
                         icon: "error"
                     });
-                }
-                else if (id.length === 0 || pw.length === 0) {    // id, pw 값이 빈칸일 경우
-                    Swal.fire({
-                        title: "회원가입 실패",
-                        text: "빈칸을 확인해주세요",
-                        icon: "error"
-                    });
-                } else {     // input 값이 들어있을 경우
-                    console.log(res)
+
+                } else {
                     Swal.fire({
                         title: "회원가입 성공!",
                         text: "👏👏",
@@ -47,7 +54,6 @@ const Join = () => {
                     });
                     nav('/login')
                 }
-
             })
     }
 
@@ -61,7 +67,7 @@ const Join = () => {
                 <div className='join-content'>
                     <p>아이디</p>
                     <input type='text' onChange={(e) => setId(e.target.value)}
-                        className='join-input' placeholder='아이디를 입력하세요' required></input> <br />
+                        className='join-input' placeholder='아이디를 입력하세요'></input> <br />
                 </div>
 
                 <div className='join-content'>
