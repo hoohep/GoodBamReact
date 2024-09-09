@@ -39,7 +39,7 @@ const Join = () => {
                 console.log(res)
                 
                 // 데이터가 중복된 값일 때
-                if (res === 'no') {
+                if (res.data === 'no') {
                     Swal.fire({
                         title: "회원가입 실패",
                         text: "중복된 값입니다.",
